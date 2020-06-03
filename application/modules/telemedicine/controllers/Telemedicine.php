@@ -20,6 +20,7 @@ class Telemedicine extends CI_Controller {
 	 */
 	public function index()
 	{
-		echo "TELEMEDICINE";
+		$this->load->view('V_daftar');
 	}
+
 }

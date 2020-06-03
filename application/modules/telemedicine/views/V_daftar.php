@@ -45,7 +45,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\css\jquery.mCustomScrollbar.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\css\pcoded-horizontal.min.css');?>">
 
-    
+    <!-- Select 2 css -->
+    <link rel="stylesheet" href="<?php echo base_url('assets\bower_components\select2\css\select2.min.css');?>">
+
 </head>
 <!-- Menu horizontal fixed layout -->
 
@@ -1011,12 +1013,10 @@
 																						<div class="col-md-4 col-lg-2">
 																							<label for="userName-2" class="block">Poliklinik</label>
 																						</div>
-																						<div class="col-md-8 col-lg-6">
+																						<div class="col-md-8 col-lg-2">
 																							<input id="poli" name="poli" type="text" readonly class="form-control">
 																						</div>
-																					</div>
-																					<div class="form-group row">
-																						<div class="col-md-4 col-lg-2">
+																						<div class="col-md-4 col-lg-1">
 																							<label for="email-2" class="block">Dokter</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
@@ -1030,13 +1030,13 @@
 																							<label for="confirm-2" class="block">Tekanan Darah</label>
 																						</div>
 																						<div class="col-md-2 col-lg-1">
-																							<input id="systol" name="systol" type="text" class="required form-control" autofocus>
+																							<input id="systol" name="systol" type="text" class="form-control" autofocus>
 																						</div>
                                                                                         <div class="col-md-2 col-lg-1">
 																							/ 
 																						</div>
                                                                                         <div class="col-md-2 col-lg-1">
-																							<input id="diastol" name="diastol" type="text" class="required form-control">
+																							<input id="diastol" name="diastol" type="text" class="form-control">
 																						</div>
                                                                                         <div class="col-md-8 col-lg-1">
 																							mmHg
@@ -1052,7 +1052,7 @@
                                                                                         <div class="col-md-2 col-lg-1">
 																							Celcius
 																						</div>
-                                                                                        <div class="col-md-2 col-lg-2">
+                                                                                        <div class="col-md-2 col-lg-1">
 																							<label for="confirm-2" class="block">Tinggi Badan</label>
 																						</div>
 																						<div class="col-md-2 col-lg-1">
@@ -1069,7 +1069,7 @@
 																							<label for="confirm-2" class="block">Berat Badan</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="nopas" name="nopas" type="text" class="required form-control" >
+																							<input id="nopas" name="nopas" type="text" class="form-control" >
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -1085,49 +1085,60 @@
 																							<label for="confirm-2" class="block">Alergi</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<div class="table-responsive">
-                                                                                                <br />
-                                                                                                <table class="table table-striped table-bordered">
-                                                                                                    <thead>
-                                                                                                        <tr>
-                                                                                                            <th>Jenis</th>
-                                                                                                            <th>Keterangan</th>
-                                                                                                            <th>Gejala/Reaksi Alergi</th>
-                                                                                                            <th>Aksi</th>
-                                                                                                        </tr>
-                                                                                                    </thead>
-                                                                                                    <tbody>
-                                                                                                    </tbody>
-                                                                                                </table>   
-                                                                                            </div>
+                                                                                            <input type="button" class="btnalergi" value="Tambah Alergi">
 																						</div>
 																					</div>
 																				</div>
+                                                                                <div class="dataalergi">
+                                                                                <div class="col-sm-12 col-lg-12">
+																					<div class="form-group row">
+																						<div class="col-md-4 col-lg-2">
+																							<label for="userName-2" class="block">Jenis Alergi</label>
+																						</div>
+																						<div class="col-md-8 col-lg-2">
+                                                                                            <select name="select" class="form-control form-control-primary">
+                                                                                                <option value="">--Pilih Jenis Alergi--</option>
+                                                                                                <option value="Obat">Obat</option>
+                                                                                                <option value="Makanan">Makanan</option>
+                                                                                            </select>
+																						</div>
+																						<div class="col-md-4 col-lg-1">
+																							<label for="email-2" class="block">Alergi</label>
+																						</div>
+																						<div class="col-md-8 col-lg-6">
+																							<input id="dokter" name="dokter" type="text"  class="form-control">
+																						</div>
+																					</div>
+                                                                                    <div class="form-group row">
+																						<div class="col-md-4 col-lg-2">
+																							<label for="email-2" class="block">Gejala Alergi</label>
+																						</div>
+																						<div class="col-md-8 col-lg-5">
+																							<input id="dokter" name="dokter" type="text"  class="form-control">
+																						</div>
+                                                                                        <div class="col-md-8 col-lg-1">
+                                                                                            <button class="btn btn-info"><i class="icofont icofont-search"></i>Simpan Alergi</button>
+																						</div>
+																					</div>
+																				</div>
+                                                                                </div>
                                                                             </fieldset>
                                                                             <h3> Metode Pembayaran </h3>
                                                                             <fieldset>
                                                                                 <div class="form-group row">
                                                                                     <div class="col-md-4 col-lg-2">
-                                                                                        <label for="Company-2" class="block">Company:</label>
+                                                                                        <button><img src="<?php echo base_url('assets\images\bank_transfer.png');?>" width="90px"></button>
                                                                                     </div>
                                                                                     <div class="col-md-8 col-lg-10">
-                                                                                        <input id="Company-2" name="Company:" type="text" class="form-control required">
+                                                                                        <button><img src="<?php echo base_url('assets\images\gopay.png');?>" width="110px"></button>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group row">
                                                                                     <div class="col-md-4 col-lg-2">
-                                                                                        <label for="CountryW-2" class="block">Country</label>
+                                                                                        <button><img src="<?php echo base_url('assets\images\linkaja.png');?>" width="90px"></button>
                                                                                     </div>
                                                                                     <div class="col-md-8 col-lg-10">
-                                                                                        <input id="CountryW-2" name="Country" type="text" class="form-control required">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="form-group row">
-                                                                                    <div class="col-md-4 col-lg-2">
-                                                                                        <label for="Position-2" class="block">Position</label>
-                                                                                    </div>
-                                                                                    <div class="col-md-8 col-lg-10">
-                                                                                        <input id="Position-2" name="Position" type="text" class="form-control required">
+                                                                                        <button><img src="<?php echo base_url('assets\images\ovo.png');?>" width="110px"></button>
                                                                                     </div>
                                                                                 </div>
                                                                             </fieldset>
@@ -1220,6 +1231,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url('assets\assets\pages\form-validation\validate.js');?>"></script>
     <!-- Custom js -->
+    <script type="text/javascript" src="<?php echo base_url('assets\files\assets\pages\advance-elements\select2-custom.js');?>"></script>
 	<script src="<?php echo base_url('assets\assets\pages\forms-wizard-validation\form-wizard.js');?>"></script>
     <script src="<?php echo base_url('assets\assets\js\pcoded.min.js');?>"></script>
     <script src="<?php echo base_url('assets\assets\js\menu\menu-hori-fixed.js');?>"></script>
@@ -1230,6 +1242,8 @@
 	<script type="text/javascript" src="<?php echo base_url('assets\bower_components\switchery\js\switchery.min.js');?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets\assets\pages\advance-elements\swithces.js');?>"></script>
 	
+    <!-- Select 2 js -->
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\select2\js\select2.full.min.js');?>"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
@@ -1239,90 +1253,16 @@
 
   gtag('config', 'UA-23581568-13');
 </script>
-<script type="text/javascript" language="javascript" >
-$(document).ready(function(){
-  
-  function load_data()
-  {
-    $.ajax({
-      url:"<?php echo base_url(); ?>livetable/load_data",
-      dataType:"JSON",
-      success:function(data){
-        var html = '<tr>';
-        html += '<td id="jenis" contenteditable placeholder="Alergi Makanan/Obat"></td>';
-        html += '<td id="alergi" contenteditable placeholder="Yang jadi Alergi"></td>';
-        html += '<td id="gejala" contenteditable placeholder="Gejala Alergi"></td>';
-        html += '<td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span></button></td></tr>';
-        for(var count = 0; count < data.length; count++)
-        {
-          html += '<tr>';
-          html += '<td class="table_data" data-row_id="'+data[count].id+'" data-column_name="jenis" contenteditable>'+data[count].jenis+'</td>';
-          html += '<td class="table_data" data-row_id="'+data[count].id+'" data-column_name="alergi" contenteditable>'+data[count].alergi+'</td>';
-          html += '<td class="table_data" data-row_id="'+data[count].id+'" data-column_name="gejala" contenteditable>'+data[count].gejala+'</td>';
-          html += '<td><button type="button" name="delete_btn" id="'+data[count].id+'" class="btn btn-xs btn-danger btn_delete"><span class="glyphicon glyphicon-remove"></span></button></td></tr>';
-        }
-        $('tbody').html(html);
-      }
+<script>
+     $(document).ready(function(){
+  //Pertama sembunyikan elemen class gambar
+        $('.dataalergi').hide();        
+
+  //Ketika elemen class tampil di klik maka elemen class gambar tampil
+        $('.btnalergi').click(function(){
+            $('.dataalergi').show();
+        });
     });
-  }
-
-  load_data();
-
-  $(document).on('click', '#btn_add', function(){
-    var jenis = $('#jenis').text();
-    var alergi = $('#alergi').text();
-    var gejala = $('#gejala').text();
-    if(jenis == '')
-    {
-      alert('Masukkan jenis alergi');
-      return false;
-    }
-    if(alergi == '')
-    {
-      alert('Masukkan alergi');
-      return false;
-    }
-    $.ajax({
-      url:"<?php echo base_url(); ?>livetable/insert",
-      method:"POST",
-      data:{jenis:jenis, alergi:alergi, gejala:gejala},
-      success:function(data){
-        load_data();
-      }
-    })
-  });
-
-  $(document).on('blur', '.table_data', function(){
-    var id = $(this).data('row_id');
-    var table_column = $(this).data('column_name');
-    var value = $(this).text();
-    $.ajax({
-      url:"<?php echo base_url(); ?>livetable/update",
-      method:"POST",
-      data:{id:id, table_column:table_column, value:value},
-      success:function(data)
-      {
-        load_data();
-      }
-    })
-  });
-
-  $(document).on('click', '.btn_delete', function(){
-    var id = $(this).attr('id');
-    if(confirm("Are you sure you want to delete this?"))
-    {
-      $.ajax({
-        url:"<?php echo base_url(); ?>livetable/delete",
-        method:"POST",
-        data:{id:id},
-        success:function(data){
-          load_data();
-        }
-      })
-    }
-  });
-  
-});
 </script>
 </body>
 

@@ -17,23 +17,23 @@
     <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
-    <link rel="icon" href="..\files\assets\images\favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo base_url('assets\assets\images\favicon.ico')?>" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="..\files\bower_components\bootstrap\css\bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\bower_components\bootstrap\css\bootstrap.min.css')?>">
     <!-- themify-icons line icon -->
-    <link rel="stylesheet" type="text/css" href="..\files\assets\icon\themify-icons\themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\icon\themify-icons\themify-icons.css')?>">
     <!-- ico font -->
-    <link rel="stylesheet" type="text/css" href="..\files\assets\icon\icofont\css\icofont.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\icon\icofont\css\icofont.css')?>">
     <!-- feather Awesome -->
-    <link rel="stylesheet" type="text/css" href="..\files\assets\icon\feather\css\feather.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\icon\feather\css\feather.css')?>">
     <!-- Syntax highlighter Prism css -->
-    <link rel="stylesheet" type="text/css" href="..\files\assets\pages\prism\prism.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\pages\prism\prism.css')?>">
     <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="..\files\assets\css\style.css">
-    <link rel="stylesheet" type="text/css" href="..\files\assets\css\jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" type="text/css" href="..\files\assets\css\pcoded-horizontal.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\css\style.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\css\jquery.mCustomScrollbar.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\css\pcoded-horizontal.min.css')?>">
 </head>
 <!-- Menu horizontal fixed layout -->
 
@@ -61,15 +61,15 @@
 
         <div class="pcoded-container">
             <!-- Menu header start -->
-            <nav class="navbar header-navbar pcoded-header" style="background:#28a745;">
+            <nav class="navbar header-navbar pcoded-header" >
                 <div class="navbar-wrapper">
 
-                    <div class="navbar-logo" style="background:#28a745;">
+                    <div class="navbar-logo" >
                         <a class="mobile-menu" id="mobile-collapse" href="#!">
                             <i class="feather icon-menu"></i>
                         </a>
                         <a href="index-1.htm">
-                            <img class="img-fluid" src="..\files\assets\images\logo.png" alt="Theme-Logo">
+                            <img class="img-fluid" src="<?php echo base_url ('assets\assets\images\logo.png')?>" alt="Theme-Logo">
                         </a>
                         <a class="mobile-options">
                             <i class="feather icon-more-horizontal"></i>
@@ -107,7 +107,7 @@
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="..\files\assets\images\avatar-4.jpg" alt="Generic placeholder image">
+                                                <img class="d-flex align-self-center img-radius" src="<?php echo base_url ('assets\assets\images\avatar-4.jpg')?>" alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">John Doe</h5>
                                                     <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -117,7 +117,7 @@
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="..\files\assets\images\avatar-3.jpg" alt="Generic placeholder image">
+                                                <img class="d-flex align-self-center img-radius" src="<?php echo base_url ('assets\assets\images\avatar-3.jpg')?>" alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">Joseph William</h5>
                                                     <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -127,7 +127,7 @@
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="..\files\assets\images\avatar-4.jpg" alt="Generic placeholder image">
+                                                <img class="d-flex align-self-center img-radius" src="<?php echo base_url ('assets\assets\images\avatar-4.jpg')?>" alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">Sara Soudein</h5>
                                                     <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -149,7 +149,7 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="..\files\assets\images\avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                                        <img src="<?php echo base_url ('assets\assets\images\avatar-4.jpg')?>" class="img-radius" alt="User-Profile-Image">
                                         <span>John Doe</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
@@ -248,7 +248,7 @@
                                 <div class="main-friend-list">
                                     <div class="media userlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-radius img-radius" src="..\files\assets\images\avatar-3.jpg" alt="Generic placeholder image ">
+                                            <img class="media-object img-radius img-radius" src="<?php echo base_url ('assets\assets\images\avatar-3.jpg')?>" alt="Generic placeholder image ">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -257,7 +257,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="2" data-status="online" data-username="Lary Doe" data-toggle="tooltip" data-placement="left" title="Lary Doe">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-radius" src="..\files\assets\images\avatar-2.jpg" alt="Generic placeholder image">
+                                            <img class="media-object img-radius" src="<?php echo base_url ('assets\assets\images\avatar-2.jpg')?>" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -266,7 +266,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-radius" src="..\files\assets\images\avatar-4.jpg" alt="Generic placeholder image">
+                                            <img class="media-object img-radius" src="<?php echo base_url ('assets\assets\images\avatar-4.jpg')?>" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -275,7 +275,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="4" data-status="online" data-username="Alia" data-toggle="tooltip" data-placement="left" title="Alia">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-radius" src="..\files\assets\images\avatar-3.jpg" alt="Generic placeholder image">
+                                            <img class="media-object img-radius" src="<?php echo base_url ('assets\assets\images\avatar-3.jpg')?>" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -284,7 +284,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="5" data-status="online" data-username="Suzen" data-toggle="tooltip" data-placement="left" title="Suzen">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-radius" src="..\files\assets\images\avatar-2.jpg" alt="Generic placeholder image">
+                                            <img class="media-object img-radius" src="<?php echo base_url ('assets\assets\images\avatar-2.jpg')?>" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -305,7 +305,7 @@
                     </div>
                     <div class="media chat-messages">
                         <a class="media-left photo-table" href="#!">
-                            <img class="media-object img-radius img-radius m-t-5" src="..\files\assets\images\avatar-3.jpg" alt="Generic placeholder image">
+                            <img class="media-object img-radius img-radius m-t-5" src="<?php echo base_url ('assets\assets\images\avatar-3.jpg')?>" alt="Generic placeholder image">
                         </a>
                         <div class="media-body chat-menu-content">
                             <div class="">
@@ -323,7 +323,7 @@
                         </div>
                         <div class="media-right photo-table">
                             <a href="#!">
-                                <img class="media-object img-radius img-radius m-t-5" src="..\files\assets\images\avatar-4.jpg" alt="Generic placeholder image">
+                                <img class="media-object img-radius img-radius m-t-5" src="<?php echo base_url ('assets\assets\images\avatar-4.jpg')?>" alt="Generic placeholder image">
                             </a>
                         </div>
                     </div>
@@ -384,9 +384,9 @@
                                                     </div>
                                                     <div class="card-block table-border-style">
                                                         <div class="table-responsive">
-                                                            <table class="table table-styling">
+                                                            <table class="table table-styling table-hover">
                                                                 <thead>
-                                                                    <tr class="table" style="background: #28a745; color: white;">
+                                                                    <tr class="table-primary">
                                                                         <th>#</th>
                                                                         <th>Kode</th>
                                                                         <th>Poli</th>
@@ -476,7 +476,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer text-center" style="background:#28a745;">
+                <div class="footer text-center">
                     <div class="">RSUD TUGUREJO PROVINSI JAWA TENGAH</div>
                 </div>
             </div>
@@ -529,28 +529,28 @@
 <![endif]-->
     <!-- Warning Section Ends -->
     <!-- Required Jquery -->
-    <script type="text/javascript" src="..\files\bower_components\jquery\js\jquery.min.js"></script>
-    <script type="text/javascript" src="..\files\bower_components\jquery-ui\js\jquery-ui.min.js"></script>
-    <script type="text/javascript" src="..\files\bower_components\popper.js\js\popper.min.js"></script>
-    <script type="text/javascript" src="..\files\bower_components\bootstrap\js\bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\jquery\js\jquery.min.js')?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\jquery-ui\js\jquery-ui.min.js')?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\popper.js\js\popper.min.js')?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\bootstrap\js\bootstrap.min.js')?>"></script>
     <!-- jquery slimscroll js -->
-    <script type="text/javascript" src="..\files\bower_components\jquery-slimscroll\js\jquery.slimscroll.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\jquery-slimscroll\js\jquery.slimscroll.js')?>"></script>
     <!-- modernizr js -->
-    <script type="text/javascript" src="..\files\bower_components\modernizr\js\modernizr.js"></script>
-    <script type="text/javascript" src="..\files\bower_components\modernizr\js\css-scrollbars.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\modernizr\js\modernizr.js')?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\modernizr\js\css-scrollbars.js')?>"></script>
 
     <!-- Syntax highlighter prism js -->
-    <script type="text/javascript" src="..\files\assets\pages\prism\custom-prism.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\assets\pages\prism\custom-prism.js')?>"></script>
     <!-- i18next.min.js -->
-    <script type="text/javascript" src="..\files\bower_components\i18next\js\i18next.min.js"></script>
-    <script type="text/javascript" src="..\files\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js"></script>
-    <script type="text/javascript" src="..\files\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js"></script>
-    <script type="text/javascript" src="..\files\bower_components\jquery-i18next\js\jquery-i18next.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\i18next\js\i18next.min.js')?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js')?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js')?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\jquery-i18next\js\jquery-i18next.min.js')?>"></script>
     <!-- Custom js -->
-    <script src="..\files\assets\js\pcoded.min.js"></script>
-    <script src="..\files\assets\js\menu\menu-hori-fixed.js"></script>
-    <script src="..\files\assets\js\jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript" src="..\files\assets\js\script.js"></script>
+    <script src="<?php echo base_url('assets\assets\js\pcoded.min.js')?>"></script>
+    <script src="<?php echo base_url('assets\assets\js\menu\menu-hori-fixed.js')?>"></script>
+    <script src="<?php echo base_url('assets\assets\js\jquery.mCustomScrollbar.concat.min.js')?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\assets\js\script.js')?>"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>

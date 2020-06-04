@@ -34,9 +34,6 @@
     <!-- feather Awesome -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\icon\feather\css\feather.css');?>">
 
-	<!-- Switch component css -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\bower_components\switchery\css\switchery.min.css');?>">
-
     <!--forms-wizard css-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\bower_components\jquery.steps\css\jquery.steps.css');?>">
 
@@ -48,6 +45,21 @@
     <!-- Select 2 css -->
     <link rel="stylesheet" href="<?php echo base_url('assets\bower_components\select2\css\select2.min.css');?>">
 
+    <style>
+        .overlay {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0, 0.9);
+            overflow-y: hidden;
+            transition: 0.5s;
+            display: none;
+        }
+</style>
 </head>
 <!-- Menu horizontal fixed layout -->
 
@@ -687,152 +699,6 @@
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>
-
-                                        </ul>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="form-picker.htm" data-i18n="nav.form-pickers.main">
-                                            <span class="pcoded-micon"><i class="ti-pencil-alt"></i></span>
-                                            <span class="pcoded-mtext">Form Picker</span>
-                                            <span class="pcoded-badge label label-warning">NEW</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-
-                                    <li class=" ">
-                                        <a href="form-select.htm" data-i18n="nav.form-select.main">
-                                            <span class="pcoded-micon"><i class="ti-shortcode"></i></span>
-                                            <span class="pcoded-mtext">Form Select</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="form-masking.htm" data-i18n="nav.form-masking.main">
-                                            <span class="pcoded-micon"><i class="ti-write"></i></span>
-                                            <span class="pcoded-mtext">Form Masking</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="form-wizard.htm" data-i18n="nav.form-wizard.main">
-                                            <span class="pcoded-micon"><i class="ti-archive"></i></span>
-                                            <span class="pcoded-mtext">Form Wizard</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" data-i18n="nav.ready-to-use.main">
-                                            <span class="pcoded-micon"><i class="ti-receipt"></i></span>
-                                            <span class="pcoded-mtext">Ready To Use</span>
-                                            <span class="pcoded-badge label label-danger">HOT</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="ready-cloned-elements-form.htm" data-i18n="nav.ready-to-use.cloned-elements-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Cloned Elements Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-currency-form.htm" data-i18n="nav.ready-to-use.currency-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Currency Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-form-booking.htm" data-i18n="nav.ready-to-use.booking-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Booking Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-form-booking-multi-steps.htm" data-i18n="nav.ready-to-use.booking-multi-steps-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Booking Multi Steps Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-form-comment.htm" data-i18n="nav.ready-to-use.comment-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Comment Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-form-contact.htm" data-i18n="nav.ready-to-use.contact-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Contact Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-job-application-form.htm" data-i18n="nav.ready-to-use.job-application-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Job Application Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-js-addition-form.htm" data-i18n="nav.ready-to-use.jS-addition-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">JS Addition Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-login-form.htm" data-i18n="nav.ready-to-use.login-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Login Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-popup-modal-form.htm" target="_blank" data-i18n="nav.ready-to-use.popup-modal-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Popup Modal Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-registration-form.htm" data-i18n="nav.ready-to-use.registration-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Registration Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-review-form.htm" data-i18n="nav.ready-to-use.review-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Review Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-subscribe-form.htm" data-i18n="nav.ready-to-use.subscribe-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Subscribe Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-suggestion-form.htm" data-i18n="nav.ready-to-use.suggestion-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Suggestion Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="ready-tabs-form.htm" data-i18n="nav.ready-to-use.tabs-form">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Tabs Form</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -889,7 +755,7 @@
                                                             <div class="col-md-12">
                                                                 <div id="wizard">
                                                                     <section>
-                                                                        <form class="wizard-form" id="example-advanced-form" action="#">
+                                                                        <form class="wizard-form" id="example-advanced-form" name="example-advanced-form">
                                                                             <h3> Isi Data Pribadi </h3>
                                                                             <fieldset>
 																				<div class="col-sm-12 col-lg-12">
@@ -919,7 +785,9 @@
 																							<input id="nopas" name="nopas" type="text" class="required form-control" autofocus>
 																						</div>
 																						<div class="col-sm-10 col-lg-5">
-																							<button class="btn btn-info"><i class="icofont icofont-search"></i>Cari</button>
+                                                                                            <div class="form-group btn-cari">
+                                                                                                <a href="javaScript:void(0)" class="btn btn-primary" id="btncari">Cari</a>
+                                                                                            </div>
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -974,7 +842,7 @@
 																							<label for="userName-2" class="block">Poliklinik</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input id="poli" name="poli" type="text" readonly class="form-control">
+																							<input type="text" readonly class="form-control">
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -982,7 +850,7 @@
 																							<label for="email-2" class="block">Dokter</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input id="dokter" name="dokter" type="text" readonly class="form-control">
+																							<input type="text" readonly class="form-control">
 																						</div>
 																					</div>
                                                                                 <div class="form-group row">
@@ -1014,13 +882,13 @@
 																							<label for="userName-2" class="block">Poliklinik</label>
 																						</div>
 																						<div class="col-md-8 col-lg-2">
-																							<input id="poli" name="poli" type="text" readonly class="form-control">
+																							<input type="text" readonly class="form-control">
 																						</div>
 																						<div class="col-md-4 col-lg-1">
 																							<label for="email-2" class="block">Dokter</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input id="dokter" name="dokter" type="text" readonly class="form-control">
+																							<input type="text" readonly class="form-control">
 																						</div>
 																					</div>
 																				</div>
@@ -1069,7 +937,7 @@
 																							<label for="confirm-2" class="block">Berat Badan</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="nopas" name="nopas" type="text" class="form-control" >
+																							<input id="berat" name="berat" type="text" class="form-control" >
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -1077,7 +945,7 @@
 																							<label for="confirm-2" class="block">Keluhan</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="nama" name="nama" type="text"  class="form-control">
+																							<input id="keluhan" name="keluhan" type="text"  class="form-control">
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -1106,7 +974,7 @@
 																							<label for="email-2" class="block">Alergi</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input id="dokter" name="dokter" type="text"  class="form-control">
+																							<input id="alergi" name="alergi" type="text"  class="form-control">
 																						</div>
 																					</div>
                                                                                     <div class="form-group row">
@@ -1114,7 +982,7 @@
 																							<label for="email-2" class="block">Gejala Alergi</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="dokter" name="dokter" type="text"  class="form-control">
+																							<input id="gejala" name="gejala" type="text"  class="form-control">
 																						</div>
                                                                                         <div class="col-md-8 col-lg-1">
                                                                                             <button class="btn btn-info"><i class="icofont icofont-search"></i>Simpan Alergi</button>
@@ -1231,16 +1099,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url('assets\assets\pages\form-validation\validate.js');?>"></script>
     <!-- Custom js -->
-    <script type="text/javascript" src="<?php echo base_url('assets\files\assets\pages\advance-elements\select2-custom.js');?>"></script>
 	<script src="<?php echo base_url('assets\assets\pages\forms-wizard-validation\form-wizard.js');?>"></script>
     <script src="<?php echo base_url('assets\assets\js\pcoded.min.js');?>"></script>
     <script src="<?php echo base_url('assets\assets\js\menu\menu-hori-fixed.js');?>"></script>
     <script src="<?php echo base_url('assets\assets\js\jquery.mCustomScrollbar.concat.min.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets\assets\js\script.js');?>"></script>
-
-	<!-- Switches -->
-	<script type="text/javascript" src="<?php echo base_url('assets\bower_components\switchery\js\switchery.min.js');?>"></script>
-	<script type="text/javascript" src="<?php echo base_url('assets\assets\pages\advance-elements\swithces.js');?>"></script>
 	
     <!-- Select 2 js -->
     <script type="text/javascript" src="<?php echo base_url('assets\bower_components\select2\js\select2.full.min.js');?>"></script>
@@ -1254,13 +1117,47 @@
   gtag('config', 'UA-23581568-13');
 </script>
 <script>
-     $(document).ready(function(){
-  //Pertama sembunyikan elemen class gambar
+     $(document).ready(function(){        
         $('.dataalergi').hide();        
 
-  //Ketika elemen class tampil di klik maka elemen class gambar tampil
         $('.btnalergi').click(function(){
             $('.dataalergi').show();
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#btncari').on('click',function(){
+            //var nopas = $('#nopas').val(); //tidak dipakai karena sudah menggunakan FormData(obj) --> mengambil semua inputan dari form tersebut
+            var obj = document.forms.namedItem("example-advanced-form")
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('telemedicine/get_pasien')?>",
+                processData:false,
+                contentType:false,
+                cache:false,
+                async:true,
+                crossOrigin : true,
+                data: new FormData(obj), 
+                dataType: "json",
+                beforeSend: function() {
+                    $('.overlay').css('display', 'block');
+                },
+                success: function (response) {
+                    $('.overlay').css('display', 'none');
+                    if(response.metaData.code=='404' || response.metaData.code=='400') {
+                        alert('Nomor Pasien tidak ditemukan')
+                        $('.reset').val('')
+                    } else if (response.metaData.code=='200'){
+                        $('#norm').val(response.data[0].mr_no)
+                        $('#nama').val(response.data[0].nama_pasien)
+                        $('#tgllhr').val(response.data[0].birth_date)
+                        $('#alamat').val(response.data[0].alamat)
+                        $('#ktp').val(response.data[0].kartu_identitas_nomor)
+                        $('#hp').val(response.data[0].kontak_nomor)
+                    }
+                }
+            })
         });
     });
 </script>

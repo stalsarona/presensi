@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Adminty - Premium Admin Template by Colorlib </title>
+    <title>Telmi Tugurejo</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -17,7 +17,7 @@
     <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
-    <link rel="icon" href="<?php echo base_url('assets\assets\images\favicon.ico')?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo base_url('assets\images\logo.ico')?>" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
@@ -34,6 +34,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\css\style.css')?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\css\jquery.mCustomScrollbar.css')?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\assets\css\pcoded-horizontal.min.css')?>">
+     <!-- Data Table Css -->
+     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css')?>">
 </head>
 <!-- Menu horizontal fixed layout -->
 
@@ -69,7 +71,7 @@
                             <i class="feather icon-menu"></i>
                         </a>
                         <a href="index-1.htm">
-                            <img class="img-fluid" src="<?php echo base_url ('assets\assets\images\logo.png')?>" alt="Theme-Logo">
+                            <img class="img-fluid" src="<?php echo base_url ('assets\images\rsud.png')?>" alt="Theme-Logo">
                         </a>
                         <a class="mobile-options">
                             <i class="feather icon-more-horizontal"></i>
@@ -377,51 +379,57 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <!-- Default card start -->
-                                                <div class="card loadpage">
-                                                    <div class="card-header">
-                                                        <h5>Daftar Poli Telemedicine</h5>
-                                                        <!-- <span>use class <code>table-primary, table-*</code> inside thead tr element</span> -->
-                                                    </div>
-                                                    <div class="card-block table-border-style">
-                                                        <div class="table-responsive">
-                                                            <table class="table table-styling table-hover">
-                                                                <thead>
-                                                                    <tr class="table-primary">
-                                                                        <th>#</th>
-                                                                        <th>Kode</th>
-                                                                        <th>Poli</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th scope="row">1</th>
-                                                                        <td>9002</td>
-                                                                        <td>Paru</td>
-                                                                        <td><button class="btn btn-sm btn-default" id="btn-paru"><i class="icofont icofont-plus-circle"></i></button></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th scope="row">2</th>
-                                                                        <td>9003</td>
-                                                                        <td>Mata</td>
-                                                                        <td><button class="btn btn-sm btn-default"><i class="icofont icofont-plus-circle"></i></button></td>
-                                                                    </tr>
-                                                                   
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="card" style="display:none;">
-                                                    <div class="konten-paru">
+                                                <div class="card loadpage" style="display: block;">
+                                                    <div class="poli">
                                                         <div class="card-header">
-                                                            <h5>Daftar Poli Paru</h5>
+                                                            <h5>Daftar Poli Telemedicine</h5>
                                                             <!-- <span>use class <code>table-primary, table-*</code> inside thead tr element</span> -->
                                                         </div>
                                                         <div class="card-block table-border-style">
                                                             <div class="table-responsive">
-                                                                <table class="table table-styling">
+                                                                <table class="table table-styling table-hover" id="tbpoli">
+                                                                    <thead>
+                                                                        <tr class="table-primary">
+                                                                            <th>#</th>
+                                                                            <th>Kode</th>
+                                                                            <th>Poli</th>
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th scope="row">1</th>
+                                                                            <td>9002</td>
+                                                                            <td>Paru</td>
+                                                                            <td><button class="btn btn-sm btn-default" id="btn-paru"><i class="icofont icofont-plus-circle"></i></button></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">2</th>
+                                                                            <td>9003</td>
+                                                                            <td>Mata</td>
+                                                                            <td><button class="btn btn-sm btn-default"><i class="icofont icofont-plus-circle"></i></button></td>
+                                                                        </tr>
+                                                                    
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>                                                 
+                                                </div>
+                                                
+                                                <div class="card poli-detail" style="display:none;">
+                                                    <div class="konten-paru">
+                                                        <div class="card-header">
+                                                            <div class="icon-btn">
+                                                                <button class="btn btn-inverse btn-outline-inverse btn-icon" id="btn-back"><i class="icofont icofont-arrow-left"></i>
+                                                                </button> <h5>Daftar Poli Paru</h5> 
+                                                            </div>
+                                                           
+                                                            <!-- <span>use class <code>table-primary, table-*</code> inside thead tr element</span> -->
+                                                        </div>
+                                                        <div class="card-block table-border-style">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-styling" id="tbpolidetail">
                                                                     <thead>
                                                                         <tr class="table-primary">
                                                                            
@@ -429,40 +437,24 @@
                                                                             <th>Poli</th>
                                                                             <th>Dokter</th>
                                                                             <th>Action</th>
-                                                                            <th>Jadwal</th>
+                                                                           
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        <tr>
+                                                                    <!-- <tr>
                                                                            
-                                                                            <td rowspan="2"><h3>9002</h3></td>
-                                                                            <td rowspan="2"><h3>Paru</h3></td>
-                                                                            <td>Dr. Budi</td>
-                                                                            <td><button class="btn btn-sm btn-primary" id="">Daftar</button></td>
-                                                                            <td>Jadwal Pukul 10</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Dedi</td>
-                                                                            <td><button class="btn btn-sm btn-primary" id="">Daftar</button></td>
-                                                                            <td>Jadwal Pukul 12</td>
-                                                                        </tr>
-                                                                    
+                                                                           <td rowspan="2"><h3>9002</h3></td>
+                                                                           <td rowspan="2"><h3>Paru</h3></td>
+                                                                           <td>Dr. Budi</td>
+                                                                           <td><button class="btn btn-sm btn-primary" id="">Daftar</button></td>
+                                                                    </tr> -->
                                                                     </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="card" style="display:none;">
-                                                    <div class="card-header">
-                                                        <h5>Sample Block</h5>
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                                                    </div>
-                                                </div>
+                                              
                                                 <!-- Default card end -->
                                             </div>
                                         </div>
@@ -541,28 +533,85 @@
 
     <!-- Syntax highlighter prism js -->
     <script type="text/javascript" src="<?php echo base_url('assets\assets\pages\prism\custom-prism.js')?>"></script>
-    <!-- i18next.min.js -->
-    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\i18next\js\i18next.min.js')?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js')?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js')?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets\bower_components\jquery-i18next\js\jquery-i18next.min.js')?>"></script>
     <!-- Custom js -->
     <script src="<?php echo base_url('assets\assets\js\pcoded.min.js')?>"></script>
     <script src="<?php echo base_url('assets\assets\js\menu\menu-hori-fixed.js')?>"></script>
     <script src="<?php echo base_url('assets\assets\js\jquery.mCustomScrollbar.concat.min.js')?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets\assets\js\script.js')?>"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- data-table js -->
+    <script src="<?php echo base_url('assets\bower_components\datatables.net\js\jquery.dataTables.min.js')?>"></script>
+    <script src="<?php echo base_url('assets\bower_components\datatables.net-bs4\js\dataTables.bootstrap4.min.js')?>"></script>
+    <script src="<?php echo base_url('assets\bower_components\datatables.net-responsive\js\dataTables.responsive.min.js')?>"></script>
+    <script src="<?php echo base_url('assets\bower_components\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js')?>"></script>
 
-  gtag('config', 'UA-23581568-13');
+<script>
+
   $(document).ready(function () {
-      $('#btn-paru').on('click', function(){
-          var paru = $('.konten-paru');
-          $('.loadpage').html(paru)
+      $('#tbpoli').on('click','#btn-paru', function(){
+        //   var paru = $('.konten-paru')
+        //   $('.loadpage').html(paru)
+      
+        var kodebagian = $(this).data('kodebagian');
+        
+        var tabel_polidetail = $('#tbpolidetail').DataTable({
+            
+            "destroy": true,
+            "bPaginate": false,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort": false,
+            "bInfo": false,
+            "bDeferRender": false,
+            "fixedColumns": true,
+            "sAjaxSource": "<?php echo base_url()?>telemedicine/get_poli_detail/"+kodebagian,
+            "aoColumns": [
+                {
+                    "mData": "kodebagian"
+                },
+                {
+                    "mData": "namabagian"
+                },
+                {
+                    "mData": "namadokter"
+                },
+                {
+                    "mData": "action",					
+                }
+            ]
+         })
+        $('.poli-detail').css('display','block')
+        $('.loadpage').css('display', 'none');
+      })
+
+      $('#btn-back').on('click', function(){
+        $('.poli-detail').css('display','none')
+        $('.loadpage').css('display', 'block')
+      })
+
+      var tabel_poli = $('#tbpoli').DataTable({
+            "destroy": true,
+            "bPaginate": false,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort": false,
+            "bInfo": false,
+            "bDeferRender": false,
+            "fixedColumns": true,
+            "sAjaxSource": "<?php echo base_url()?>telemedicine/get_poli",
+            "aoColumns": [
+                {
+                    "mData": "nomor"
+                },
+                {
+                    "mData": "kodebagian"
+                },
+                {
+                    "mData": "namabagian"
+                },
+                {
+                    "mData": "action",					
+                }
+            ]
       })
   });
   

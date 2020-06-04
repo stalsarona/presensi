@@ -755,7 +755,7 @@
                                                             <div class="col-md-12">
                                                                 <div id="wizard">
                                                                     <section>
-                                                                        <form class="wizard-form" id="example-advanced-form" action="#">
+                                                                        <form class="wizard-form" id="example-advanced-form" name="example-advanced-form">
                                                                             <h3> Isi Data Pribadi </h3>
                                                                             <fieldset>
 																				<div class="col-sm-12 col-lg-12">
@@ -842,7 +842,7 @@
 																							<label for="userName-2" class="block">Poliklinik</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input id="poli" name="poli" type="text" readonly class="form-control">
+																							<input type="text" readonly class="form-control">
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -850,7 +850,7 @@
 																							<label for="email-2" class="block">Dokter</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input id="dokter" name="dokter" type="text" readonly class="form-control">
+																							<input type="text" readonly class="form-control">
 																						</div>
 																					</div>
                                                                                 <div class="form-group row">
@@ -882,13 +882,13 @@
 																							<label for="userName-2" class="block">Poliklinik</label>
 																						</div>
 																						<div class="col-md-8 col-lg-2">
-																							<input id="poli" name="poli" type="text" readonly class="form-control">
+																							<input type="text" readonly class="form-control">
 																						</div>
 																						<div class="col-md-4 col-lg-1">
 																							<label for="email-2" class="block">Dokter</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input id="dokter" name="dokter" type="text" readonly class="form-control">
+																							<input type="text" readonly class="form-control">
 																						</div>
 																					</div>
 																				</div>
@@ -937,7 +937,7 @@
 																							<label for="confirm-2" class="block">Berat Badan</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="nopas" name="nopas" type="text" class="form-control" >
+																							<input id="berat" name="berat" type="text" class="form-control" >
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -945,7 +945,7 @@
 																							<label for="confirm-2" class="block">Keluhan</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="nama" name="nama" type="text"  class="form-control">
+																							<input id="keluhan" name="keluhan" type="text"  class="form-control">
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -974,7 +974,7 @@
 																							<label for="email-2" class="block">Alergi</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input id="dokter" name="dokter" type="text"  class="form-control">
+																							<input id="alergi" name="alergi" type="text"  class="form-control">
 																						</div>
 																					</div>
                                                                                     <div class="form-group row">
@@ -982,7 +982,7 @@
 																							<label for="email-2" class="block">Gejala Alergi</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="dokter" name="dokter" type="text"  class="form-control">
+																							<input id="gejala" name="gejala" type="text"  class="form-control">
 																						</div>
                                                                                         <div class="col-md-8 col-lg-1">
                                                                                             <button class="btn btn-info"><i class="icofont icofont-search"></i>Simpan Alergi</button>
@@ -1126,39 +1126,40 @@
     });
 </script>
 <script>
-     $('#btncari').on('click',function(){
-        var nopas = $('#nopas').val();
-        var obj = document.forms.namedItem("example-advanced-form")
-        $.ajax({
-            type: "POST",
-            url: "<?php echo base_url('telemedicine/get_pasien')?>",
-            processData:false,
-            contentType:false,
-            cache:false,
-            async:true,
-            crossOrigin : true,
-            data: new FormData(obj),
-            dataType: "json",
-            beforeSend: function() {
-                $('.overlay').css('display', 'block');
-            },
-            success: function (response) {
-                $('.overlay').css('display', 'none');
-                if(nopas == ""){
-                    $('.reset').val('')
-                } else if(response.metaData[0].code=='404' || response.metaData[0].code=='400') {
-                    $('.reset').val('')
-                } else {
-                    $('#norm').val(response.data[0].mr_no)
-                    $('#nama').val(response.data[0].nama_pasien)
-                    $('#tgllhr').val(response.data[0].birth_date)
-                    $('#alamat').val(response.data[0].alamat)
-                    $('#ktp').val(response.data[0].kartu_identitas_nomor)
-                    $('#hp').val(response.data[0].kontak_nomor)
+    $(document).ready(function(){
+        $('#btncari').on('click',function(){
+            //var nopas = $('#nopas').val(); //tidak dipakai karena sudah menggunakan FormData(obj) --> mengambil semua inputan dari form tersebut
+            var obj = document.forms.namedItem("example-advanced-form")
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('telemedicine/get_pasien')?>",
+                processData:false,
+                contentType:false,
+                cache:false,
+                async:true,
+                crossOrigin : true,
+                data: new FormData(obj), 
+                dataType: "json",
+                beforeSend: function() {
+                    $('.overlay').css('display', 'block');
+                },
+                success: function (response) {
+                    $('.overlay').css('display', 'none');
+                    if(response.metaData.code=='404' || response.metaData.code=='400') {
+                        alert('Nomor Pasien tidak ditemukan')
+                        $('.reset').val('')
+                    } else if (response.metaData.code=='200'){
+                        $('#norm').val(response.data[0].mr_no)
+                        $('#nama').val(response.data[0].nama_pasien)
+                        $('#tgllhr').val(response.data[0].birth_date)
+                        $('#alamat').val(response.data[0].alamat)
+                        $('#ktp').val(response.data[0].kartu_identitas_nomor)
+                        $('#hp').val(response.data[0].kontak_nomor)
+                    }
                 }
-            }
-        })
-     });
+            })
+        });
+    });
 </script>
 </body>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <title>Telmi Tugurejo</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
@@ -17,7 +17,7 @@
     <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
-    <link rel="icon" href="<?php echo base_url('assets\assets\images\favicon.ico');?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo base_url('assets\images\logo.ico')?>" type="image/x-icon">
 
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
@@ -94,8 +94,8 @@
                         <a class="mobile-menu" id="mobile-collapse" href="#!">
                             <i class="feather icon-menu"></i>
                         </a>
-                        <a href="index-1.htm">
-                            <img class="img-fluid" src="<?php echo base_url('assets\assets\images\logo.png');?>" alt="Theme-Logo">
+                        <a href="<?php echo site_url()?>">
+                            <img class="img-fluid" src="<?php echo base_url ('assets\images\rsud.png')?>" alt="Theme-Logo">
                         </a>
                         <a class="mobile-options">
                             <i class="feather icon-more-horizontal"></i>
@@ -764,16 +764,18 @@
 																							<label for="userName-2" class="block">Poliklinik</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input id="poli" name="poli" type="text" readonly class="form-control">
-																						</div>
+																							<input id="poli" name="poli" type="text" value="<?php echo $namapoli ?>" readonly class="form-control">
+                                                                                            <input id="kode_poli" name="kode_poli" type="hidden" value="<?php echo $kodepoli ?>" readonly class="form-control">
+                                                                                        </div>
 																					</div>
 																					<div class="form-group row">
 																						<div class="col-md-4 col-lg-2">
 																							<label for="email-2" class="block">Dokter</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input id="dokter" name="dokter" type="text" readonly class="form-control">
-																						</div>
+																							<input id="dokter" name="dokter" type="text" value="<?php echo $namadokter ?>" readonly class="form-control">
+                                                                                            <input id="kode_dokter" name="kode_dokter" type="hidden" value="<?php echo $kodedokter ?>" readonly class="form-control">
+                                                                                        </div>
 																					</div>
 																				</div>
 																				<div class="col-sm-12 col-lg-12">
@@ -837,21 +839,23 @@
                                                                             <h3> Metode Layanan </h3>
                                                                             <fieldset>
 																				<div class="col-sm-12 col-lg-12">
-																					<div class="form-group row">
+                                                                                <div class="form-group row">
 																						<div class="col-md-4 col-lg-2">
 																							<label for="userName-2" class="block">Poliklinik</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input type="text" readonly class="form-control">
-																						</div>
+																							<input type="text" value="<?php echo $namapoli ?>" readonly class="form-control">
+                                                                                            
+                                                                                        </div>
 																					</div>
 																					<div class="form-group row">
 																						<div class="col-md-4 col-lg-2">
 																							<label for="email-2" class="block">Dokter</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input type="text" readonly class="form-control">
-																						</div>
+																							<input type="text" value="<?php echo $namadokter ?>" readonly class="form-control">
+                                                                                            
+                                                                                        </div>
 																					</div>
                                                                                 <div class="form-group row">
                                                                                     <div class="col-md-4 col-lg-2">
@@ -882,13 +886,13 @@
 																							<label for="userName-2" class="block">Poliklinik</label>
 																						</div>
 																						<div class="col-md-8 col-lg-2">
-																							<input type="text" readonly class="form-control">
+																							<input type="text" value="<?php echo $namapoli ?>" readonly class="form-control">
 																						</div>
 																						<div class="col-md-4 col-lg-1">
 																							<label for="email-2" class="block">Dokter</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input type="text" readonly class="form-control">
+																							<input type="text" value="<?php echo $namadokter ?>" readonly class="form-control">
 																						</div>
 																					</div>
 																				</div>

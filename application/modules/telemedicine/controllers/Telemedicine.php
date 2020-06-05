@@ -5,8 +5,11 @@ class Telemedicine extends CI_Controller {
  
 	public function index()
 	{
-		$this->load->view('V_daftar');
-
+		$this->input->get('kd-poli') ? $data['kodepoli'] = $this->input->get('kd-poli') : $data['kodepoli'] = "";
+		$this->input->get('nm-poli') ? $data['namapoli'] = $this->input->get('nm-poli') : $data['namapoli'] = "";
+		$this->input->get('nm-dokter') ? $data['namadokter'] = $this->input->get('nm-dokter') : $data['namadokter'] = "";
+		$this->input->get('kd-dokter') ? $data['kodedokter'] = $this->input->get('kd-dokter') : $data['kodedokter'] = "";
+		$this->load->view('V_daftar', $data);
 	}
 
 	public function get_pasien()
@@ -109,7 +112,8 @@ class Telemedicine extends CI_Controller {
 							 'kodedokter' => $key['KODEDOKTER'],
 							 'namadokter' => $key['NAMADOKTER'],
 							 'action' => '<a class="btn btn-sm btn-primary" id="btn-paru"
-							 			href="'.base_url().'?poli='.urlencode($key['NAMABAGIAN']).'&dokter='.urlencode($key['NAMADOKTER']).'"
+										 href="'.site_url('register').'?kd-poli='.urlencode($key['KODEBAGIAN']).'&nm-poli='.urlencode($key['NAMABAGIAN']).'
+										 &kd-dokter='.urlencode($key['KODEDOKTER']).'&nm-dokter='.urlencode($key['NAMADOKTER']).'"
 								 >Daftar</a>'
 			);
 		}

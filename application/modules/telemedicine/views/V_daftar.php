@@ -463,22 +463,40 @@
                                                                                     <div class="col-md-4 col-lg-2">
                                                                                     </div>
                                                                                     <div class="col-md-8 col-lg-10">
-																						<div class="border-checkbox-group border-checkbox-group-primary">
+																						<!-- <div class="border-checkbox-group border-checkbox-group-primary">
 																							<input class="border-checkbox" type="checkbox" id="checkbox1">
 																							<label class="border-checkbox-label" for="checkbox1">Konsul Dokter   ---   Rp 150.000,-</label>
-																						</div>
+                                                                                        </div> -->
+                                                                                        <div class="checkbox-fade fade-in-primary">
+                                                                                            <label>
+                                                                                                <input type="checkbox" value="" style="display: none;">
+                                                                                                <span class="cr">
+                                                                                                    <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                                                                </span>
+                                                                                                <span>Konsul Dokter   ---   Rp 150.000,-</span>
+                                                                                            </label>
+                                                                                        </div>
                                                                                     </div>
+                                                                                    
                                                                                 </div>
                                                                                 <div class="form-group row">
 																				<div class="col-md-4 col-lg-2">
                                                                                     </div>
                                                                                     <div class="col-md-8 col-lg-10">
-																					<div class="border-checkbox-group border-checkbox-group-primary">
+																					<!-- <div class="border-checkbox-group border-checkbox-group-primary">
 																							<input class="border-checkbox" type="checkbox" id="checkbox2">
 																							<label class="border-checkbox-label" for="checkbox2">Home Visit (Perawat)  ---   Rp 100.000,-</label>
 																						</div>
+                                                                                    </div> -->
+                                                                                    <div class="checkbox-fade fade-in-primary">
+                                                                                        <label>
+                                                                                            <input type="checkbox" value="" style="display: none;">
+                                                                                            <span class="cr">
+                                                                                                <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                                                            </span>
+                                                                                            <span>Home Visit (Perawat)  ---   Rp 100.000,-</span>
+                                                                                        </label>
                                                                                     </div>
-                                                                                </div>
                                                                             </fieldset>
                                                                             <h3> Assesment Mandiri </h3>
                                                                             <fieldset style="overflow-x:auto;">

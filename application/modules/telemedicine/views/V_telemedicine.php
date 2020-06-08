@@ -304,7 +304,7 @@
                                                         <div class="card-header">
                                                             <div class="icon-btn">
                                                                 <button class="btn btn-inverse btn-outline-inverse btn-icon" id="btn-back"><i class="icofont icofont-arrow-left"></i>
-                                                                </button> <h5>Daftar Poli Paru</h5> 
+                                                                </button> <h5>Daftar Dokter yang melakukan Telemedicine</h5> 
                                                             </div>
                                                            
                                                             <!-- <span>use class <code>table-primary, table-*</code> inside thead tr element</span> -->

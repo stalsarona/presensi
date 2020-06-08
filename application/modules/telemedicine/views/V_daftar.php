@@ -59,6 +59,13 @@
             transition: 0.5s;
             display: none;
         }
+
+        @media screen and (max-width: 600px) {
+        .col-md-2, .col-md-4, .col-md-8, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+}
 </style>
 </head>
 <!-- Menu horizontal fixed layout -->
@@ -298,411 +305,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="pcoded-hasmenu">
-                                <a href="javascript:void(0)">
-                                    <span class="pcoded-micon"><i class="feather icon-box"></i></span>
-                                    <span class="pcoded-mtext">UI Element</span>
-                                    <span class="pcoded-mcaret"></span>
-                                </a>
-                                <ul class="pcoded-submenu">
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)">
-                                            <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                            <span class="pcoded-mtext">Basic Components</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="alert.htm" data-i18n="nav.basic-components.alert">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Alert</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="breadcrumb.htm" data-i18n="nav.basic-components.breadcrumbs">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Breadcrumbs</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="button.htm" data-i18n="nav.basic-components.button">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Button</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="box-shadow.htm" data-i18n="nav.basic-components.box-shadow">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Box-Shadow</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="accordion.htm" data-i18n="nav.basic-components.collapse–accordion">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Accordion</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="generic-class.htm" data-i18n="nav.basic-components.generic-class">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Generic Class</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="tabs.htm" data-i18n="nav.basic-components.tabs">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Tabs</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="color.htm" data-i18n="nav.basic-components.color">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Color</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="label-badge.htm" data-i18n="nav.basic-components.label-badge">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Label Badge</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="progress-bar.htm" data-i18n="nav.basic-components.progress-bar">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Progress Bar</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="preloader.htm" data-i18n="nav.basic-components.pre-loader">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Pre-Loader</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="list.htm" data-i18n="nav.basic-components.list">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">List</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="tooltip.htm" data-i18n="nav.basic-components.tooltip-popover">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Tooltip And Popover</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="typography.htm" data-i18n="nav.basic-components.typography">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Typography</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="other.htm" data-i18n="nav.basic-components.other">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Other</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-
-                                        </ul>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" data-i18n="nav.advance-components.main">
-                                            <span class="pcoded-micon"><i class="ti-crown"></i></span>
-                                            <span class="pcoded-mtext">Advance Components</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="draggable.htm" data-i18n="nav.advance-components.draggable">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Draggable</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="bs-grid.htm" data-i18n="nav.advance-components.grid-stack">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Grid Stack</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="light-box.htm" data-i18n="nav.advance-components.light-box">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Light Box</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="modal.htm" data-i18n="nav.advance-components.modal">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Modal</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-
-                                            <li class=" ">
-                                                <a href="notification.htm" data-i18n="nav.advance-components.notifications">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Notifications</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="notify.htm" data-i18n="nav.advance-components.pnotify">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">PNOTIFY</span>
-                                                    <span class="pcoded-badge label label-info">NEW</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="rating.htm" data-i18n="nav.advance-components.rating">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Rating</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="range-slider.htm" data-i18n="nav.advance-components.range-slider">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Range Slider</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="slider.htm" data-i18n="nav.advance-components.slider">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Slider</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="syntax-highlighter.htm" data-i18n="nav.advance-components.syntax-highlighter">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Syntax Highlighter</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="tour.htm" data-i18n="nav.advance-components.tour">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Tour</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="treeview.htm" data-i18n="nav.advance-components.tree-view">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Tree View</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="nestable.htm" data-i18n="nav.advance-components.nestable">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Nestable</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="toolbar.htm" data-i18n="nav.advance-components.toolbar">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Toolbar</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="x-editable.htm" data-i18n="nav.advance-components.x-editable">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">X-Editable</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-
-                                        </ul>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" data-i18n="nav.extra-components.main">
-                                            <span class="pcoded-micon"><i class="ti-gift"></i></span>
-                                            <span class="pcoded-mtext">Extra Components</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="session-timeout.htm" data-i18n="nav.extra-components.session-timeout">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Session Timeout</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="session-idle-timeout.htm" data-i18n="nav.extra-components.session-idle-timeout">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Session Idle Timeout</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="offline.htm" data-i18n="nav.extra-components.offline">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Offline</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-
-                                        </ul>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="animation.htm" data-i18n="nav.animations.main">
-                                            <span class="pcoded-micon"><i class="ti-reload rotate-refresh"></i></span>
-                                            <span class="pcoded-mtext">Animations</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="sticky.htm" data-i18n="nav.sticky-notes.main">
-                                            <span class="pcoded-micon"><i class="ti-layers-alt"></i></span>
-                                            <span class="pcoded-mtext">Sticky Notes</span>
-                                            <span class="pcoded-badge label label-danger">HOT</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" data-i18n="nav.icons.main">
-                                            <span class="pcoded-micon"><i class="ti-star"></i></span>
-                                            <span class="pcoded-mtext">Icons</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="icon-font-awesome.htm" data-i18n="nav.icons.font-awesome">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Font Awesome</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="icon-themify.htm" data-i18n="nav.icons.themify">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Themify</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="icon-simple-line.htm" data-i18n="nav.icons.simple-line-icon">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Simple Line Icon</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="icon-ion.htm" data-i18n="nav.icons.ion-icon">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Ion Icon</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="icon-material-design.htm" data-i18n="nav.icons.material-design">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Material Design</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="icon-icofonts.htm" data-i18n="nav.icons.ico-fonts">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Ico Fonts</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="icon-weather.htm" data-i18n="nav.icons.weather-icon">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Weather Icon</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="icon-typicons.htm" data-i18n="nav.icons.typicons">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Typicons</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="icon-flags.htm" data-i18n="nav.icons.flags">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Flags</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="pcoded-hasmenu">
-                                <a href="javascript:void(0)">
-                                    <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
-                                    <span class="pcoded-mtext">Forms</span>
-                                    <span class="pcoded-mcaret"></span>
-                                </a>
-                                <ul class="pcoded-submenu">
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" data-i18n="nav.form-components.main">
-                                            <span class="pcoded-micon"><i class="ti-layers"></i></span>
-                                            <span class="pcoded-mtext">Form Components</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="form-elements-component.htm" data-i18n="nav.form-components.form-components">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Form Components</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="form-elements-add-on.htm" data-i18n="nav.form-components.form-elements-add-on">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Form-Elements-Add-On</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="form-elements-advance.htm" data-i18n="nav.form-components.form-elements-advance">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Form-Elements-Advance</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="form-validation.htm" data-i18n="nav.form-components.form-validation">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Form Validation</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -755,9 +357,9 @@
                                                             <div class="col-md-12">
                                                                 <div id="wizard">
                                                                     <section>
-                                                                        <form class="wizard-form" id="example-advanced-form" name="example-advanced-form">
+                                                                        <form class="wizard-form" id="example-advanced-form" name="example-advanced-form" > 
                                                                             <h3> Isi Data Pribadi </h3>
-                                                                            <fieldset>
+                                                                            <fieldset style="overflow-x:auto;">
 																				<div class="col-sm-12 col-lg-12">
 																					<div class="form-group row">
 																						<div class="col-md-4 col-lg-2">
@@ -779,7 +381,7 @@
 																					</div>
 																				</div>
 																				<div class="col-sm-12 col-lg-12">
-																					<div class="form-group row">
+																					<div class="form-group row" >
 																						<div class="col-md-4 col-lg-2">
 																							<label for="confirm-2" class="block">No Pasien *</label>
 																						</div>
@@ -879,7 +481,7 @@
                                                                                 </div>
                                                                             </fieldset>
                                                                             <h3> Assesment Mandiri </h3>
-                                                                            <fieldset>
+                                                                            <fieldset style="overflow-x:auto;">
 																				<div class="col-sm-12 col-lg-12">
 																					<div class="form-group row">
 																						<div class="col-md-4 col-lg-2">

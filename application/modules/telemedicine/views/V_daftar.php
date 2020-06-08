@@ -131,183 +131,9 @@
             </nav>
             <!-- Menu header end -->
             <div class="pcoded-main-container">
-                <nav class="pcoded-navbar">
-                    <div class="pcoded-inner-navbar">
-                        <ul class="pcoded-item pcoded-left-item">
-                            <li class="pcoded-hasmenu">
-                                <a href="javascript:void(0)">
-                                    <span class="pcoded-micon"><i class="feather icon-map"></i></span>
-                                    <span class="pcoded-mtext">Navigation</span>
-                                    <span class="pcoded-mcaret"></span>
-                                </a>
-                                <ul class="pcoded-submenu">
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)">
-                                            <span class="pcoded-micon"><i class="ti-home"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class="">
-                                                <a href="index-1.htm">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.dash.default">Default</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="dashboard-ecommerce.html">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.dash.ecommerce">Ecommerce</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="dashboard-crm.htm">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.dash.crm">CRM</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="dashboard-analytics.htm">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.dash.analytics">Analytics</span>
-                                                    <span class="pcoded-badge label label-info ">NEW</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="dashboard-project.html">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.dash.project">Project</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)">
-                                            <span class="pcoded-micon"><i class="ti-layout"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.page_layout.main">Page layouts</span>
-                                            <span class="pcoded-badge label label-warning">NEW</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-
-                                            <li class=" pcoded-hasmenu">
-                                                <a href="javascript:void(0)">
-                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
-                                                    <span class="pcoded-mtext">Vertical</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class=" ">
-                                                        <a href="menu-static.htm" data-i18n="nav.page_layout.vertical.static-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Static Layout</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class=" ">
-                                                        <a href="menu-header-fixed.htm" data-i18n="nav.page_layout.vertical.header-fixed">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Header Fixed</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class=" ">
-                                                        <a href="menu-compact.htm" data-i18n="nav.page_layout.vertical.compact">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Compact</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class=" ">
-                                                        <a href="menu-sidebar.htm" data-i18n="nav.page_layout.vertical.sidebar-fixed">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Sidebar Fixed</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-
-                                                </ul>
-                                            </li>
-                                            <li class=" pcoded-hasmenu">
-                                                <a href="javascript:void(0)" data-i18n="nav.page_layout.horizontal.main">
-                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
-                                                    <span class="pcoded-mtext">Horizontal</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class=" ">
-                                                        <a href="menu-horizontal-static.htm" target="_blank" data-i18n="nav.page_layout.horizontal.static-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Static Layout</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class=" ">
-                                                        <a href="menu-horizontal-fixed.htm" target="_blank" data-i18n="nav.page_layout.horizontal.fixed-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Fixed layout</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class=" ">
-                                                        <a href="menu-horizontal-icon.htm" target="_blank" data-i18n="nav.page_layout.horizontal.static-with-icon">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Static With Icon</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class=" ">
-                                                        <a href="menu-horizontal-icon-fixed.htm" target="_blank" data-i18n="nav.page_layout.horizontal.fixed-with-icon">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Fixed With Icon</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="menu-bottom.htm" data-i18n="nav.page_layout.bottom-menu">
-                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
-                                                    <span class="pcoded-mtext">Bottom Menu</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="box-layout.htm" target="_blank" data-i18n="nav.page_layout.box-layout">
-                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
-                                                    <span class="pcoded-mtext">Box Layout</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="menu-rtl.htm" target="_blank" data-i18n="nav.page_layout.rtl">
-                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
-                                                    <span class="pcoded-mtext">RTL</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-
-                                        </ul>
-                                    </li>
-                                    <li class="">    <a href="navbar-light.htm">        <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>N</b></span>        <span class="pcoded-mtext" data-i18n="nav.navigate.main">Navigation</span>        <span class="pcoded-mcaret"></span>    </a></li>
-                                    <li class=" ">
-                                        <a href="widget.html" data-i18n="nav.widget.main">
-                                            <span class="pcoded-micon"><i class="ti-view-grid"></i></span>
-                                            <span class="pcoded-mtext">Widget</span>
-                                            <span class="pcoded-badge label label-danger">100+</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                <!-- top navigation -->
+                <?php $this->load->view('Top_nav') ?>
+                <!-- end of top navigation -->
                 <!-- Sidebar chat start -->
                 <div class="pcoded-wrapper">
                     <div class="pcoded-content">
@@ -386,7 +212,7 @@
 																							<label for="confirm-2" class="block">No Pasien *</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="nopas" name="nopas" type="text" class="required form-control" autofocus>
+																							<input id="nopas" name="nopas" type="text" class="required form-control" autofocus placeholder="Nomer Pasien">
 																						</div>
 																						<div class="col-sm-10 col-lg-5">
                                                                                             <div class="form-group btn-cari">
@@ -399,7 +225,7 @@
 																							<label for="confirm-2" class="block">Nama</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="nama" name="nama" type="text" readonly class="form-control">
+																							<input id="nama" name="nama" type="text" readonly class="form-control" placeholder="Nama Lengkap">
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -407,7 +233,7 @@
 																							<label for="confirm-2" class="block">Tgl Lahir</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="tgllhr" name="tgllhr" type="text" readonly class="form-control">
+																							<input id="tgllhr" name="tgllhr" type="text" readonly class="form-control" placeholder="Tanggal Lahir">
 																						</div>
 																					</div>
 																				</div>
@@ -417,7 +243,7 @@
 																							<label for="confirm-2" class="block">Alamat</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="alamat" name="alamat" type="text" readonly class="form-control">
+																							<input id="alamat" name="alamat" type="text" readonly class="form-control" placeholder="Alamat">
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -425,7 +251,7 @@
 																							<label for="confirm-2" class="block">No KTP</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="ktp" name="ktp" type="text" readonly class="form-control">
+																							<input id="ktp" name="ktp" type="text" readonly class="form-control" placeholder="No. KTP">
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -433,7 +259,7 @@
 																							<label for="confirm-2" class="block">No HP</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="hp" name="hp" type="text" readonly class="form-control">
+																							<input id="hp" name="hp" type="text" readonly class="form-control" placeholder="Nomor Hp">
 																						</div>
 																					</div>
 																				</div>
@@ -523,14 +349,12 @@
 																						</div>
 																						<div class="col-md-2 col-lg-1">
 																							<input id="systol" name="systol" type="text" class="form-control" autofocus>
-																						</div>
-                                                                                        <div class="col-md-2 col-lg-1">
-																							/ 
-																						</div>
+                                                                                        </div> 
+                                                                                        <div><h2>/</h2></div>                                                                                      
                                                                                         <div class="col-md-2 col-lg-1">
 																							<input id="diastol" name="diastol" type="text" class="form-control">
 																						</div>
-                                                                                        <div class="col-md-8 col-lg-1">
+                                                                                        <div>
 																							mmHg
 																						</div>
 																					</div>
@@ -539,20 +363,16 @@
 																							<label for="confirm-2" class="block">Suhu Badan</label>
 																						</div>
 																						<div class="col-md-2 col-lg-1">
-																							<input id="suhu" name="suhu" type="text"  class="form-control">
+																							<input id="suhu" name="suhu" type="text"  class="form-control" placeholder="&#8451;">
 																						</div>
-                                                                                        <div class="col-md-2 col-lg-1">
-																							Celcius
-																						</div>
+                                                                                        
                                                                                         <div class="col-md-2 col-lg-1">
 																							<label for="confirm-2" class="block">Tinggi Badan</label>
 																						</div>
 																						<div class="col-md-2 col-lg-1">
-																							<input id="tinggi" name="tinggi" type="text"  class="form-control">
+																							<input id="tinggi" name="tinggi" type="text"  class="form-control" placeholder="cm">
 																						</div>
-                                                                                        <div class="col-md-2 col-lg-1">
-																							cm
-																						</div>
+                                                                                     
 																					</div>
 																				</div>
 																				<div class="col-sm-12 col-lg-12">
@@ -561,7 +381,7 @@
 																							<label for="confirm-2" class="block">Berat Badan</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="berat" name="berat" type="text" class="form-control" >
+																							<input id="berat" name="berat" type="text" class="form-control" placeholder="Berat badan (Kg)">
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -569,7 +389,7 @@
 																							<label for="confirm-2" class="block">Keluhan</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="keluhan" name="keluhan" type="text"  class="form-control">
+																							<input id="keluhan" name="keluhan" type="text"  class="form-control" placeholder="Keluhan">
 																						</div>
 																					</div>
 																					<div class="form-group row">
@@ -577,7 +397,7 @@
 																							<label for="confirm-2" class="block">Alergi</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-                                                                                            <input type="button" class="btnalergi" value="Tambah Alergi">
+                                                                                            <input type="button" class="btnalergi btn btn-primary" value="Tambah Alergi">
 																						</div>
 																					</div>
 																				</div>
@@ -598,7 +418,7 @@
 																							<label for="email-2" class="block">Alergi</label>
 																						</div>
 																						<div class="col-md-8 col-lg-6">
-																							<input id="alergi" name="alergi" type="text"  class="form-control">
+																							<input id="alergi" name="alergi" type="text"  class="form-control" placeholder="Alergi">
 																						</div>
 																					</div>
                                                                                     <div class="form-group row">
@@ -606,7 +426,7 @@
 																							<label for="email-2" class="block">Gejala Alergi</label>
 																						</div>
 																						<div class="col-md-8 col-lg-5">
-																							<input id="gejala" name="gejala" type="text"  class="form-control">
+																							<input id="gejala" name="gejala" type="text"  class="form-control" placeholder="Gejala alergi">
 																						</div>
                                                                                         <div class="col-md-8 col-lg-1">
                                                                                             <button class="btn btn-info"><i class="icofont icofont-search"></i>Simpan Alergi</button>
@@ -653,6 +473,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="footer text-center">
+                    <div class="">RSUD TUGUREJO PROVINSI JAWA TENGAH</div>
                 </div>
             </div>
         </div>

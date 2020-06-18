@@ -178,7 +178,7 @@
               if(response[0]['kode'] == '200' && response[0]['TIPEUSER'] == 'MANAJEMEN'){
                 var manajemen = '<?php echo base_url('manajemen')?>/'
                 window.location.replace(manajemen);
-              } else if(response[0]['kode'] == '200' && response[0]['TIPEUSER'] != 'MANAJEMEN'){
+              } else if(response[0]['kode'] == '200' && response[0]['TIPEUSER'] == 'ORPEG'){
                 var orpeg = '<?php echo base_url('orpeg')?>/'
                 window.location.replace(orpeg);
               } else if(response[0]['kode'] == '400' || response[0]['kode'] == '300'){

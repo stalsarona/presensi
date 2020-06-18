@@ -17,7 +17,7 @@ class Monitoring extends CI_Controller {
     {
         $data['private_token'] = $this->private_token();
         $data1 = $this->get_total_data();
-        
+        $niplama=$this->session->userdata('niplama');
         if(count($data1) > 0 ){
             $data['data'] = $data1;          
         } else {

@@ -18,8 +18,11 @@ class Login extends CI_Controller {
 			$this->load->view('V_login', $data);
 		} else if($this->session->userdata('tipe')=='MANAJEMEN'){
 			redirect('manajemen','refresh');
-		} else{
+		} else if($this->session->userdata('tipe')=='ORPEG'){
 			redirect('orpeg','refresh');
+		} else{
+			$this->session->sess_destroy();
+			redirect('login','refresh');
 		}
 	}
 
@@ -71,7 +74,8 @@ class Login extends CI_Controller {
 			$array = array(
 				'status_log' => TRUE,
 				'username' => $key->USERNM,
-				'tipe' => $key->TIPEUSER
+				'tipe' => $key->TIPEUSER,
+				'niplama' => $key->NIPLAMA
 			);
 			$this->session->set_userdata( $array );	
 		} 

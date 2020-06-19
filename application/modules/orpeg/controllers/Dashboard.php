@@ -15,15 +15,27 @@ class Dashboard extends CI_Controller {
     
     public function index()
     {
-        $data['private_token'] = $this->private_token();
-        $data1 = $this->get_total_data();
+        // $data['private_token'] = $this->private_token();
+        // $data1 = $this->get_total_data();
         
-        if(count($data1) > 0 ){
-            $data['data'] = $data1;          
-        } else {
-            $data['data'] = $this->info_covid_mysql();         
-        }
-        $this->load->view('V_dashboard', $data);
+        // if(count($data1) > 0 ){
+        //     $data['data'] = $data1;          
+        // } else {
+        //     $data['data'] = $this->info_covid_mysql();         
+        // }
+
+        $this->load->view('V_dashboard');
+        $this->load->view('V_content1');
+        $this->load->view('V_footer');
+        
+    }
+
+    public function view_jadwal(){
+        $data['username'] = $this->session->userdata('username');
+        $data['nip'] = $this->session->userdata('niplama');
+        $this->load->view('V_dashboard');
+        $this->load->view('V_jadwal',$data);
+        $this->load->view('V_footer');
     }
 
     public function pendataan()
@@ -68,13 +80,13 @@ class Dashboard extends CI_Controller {
     
     public function simpan_total()
     {
+        $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
         $obj = array(
-            'COV_DWS_SMB' => $this->input->post('cov_dws_sembuh'),
-            'COV_DWS_RWT' => urlencode($this->input->post('cov_dws_dirawat')),
-            'COV_DWS_MNG' => urlencode($this->input->post('cov_dws_meninggal')),
-            'COV_DWS_ISO' => urlencode($this->input->post('cov_dws_iso')),
-            'COV_ANK_SMB' => urlencode($this->input->post('cov_ank_sembuh')),
-            'COV_ANK_RWT' => urlencode($this->input->post('cov_ank_dirawat')),
+            'JNS_SHIFT' => urlencode($this->input->post('jenis')),
+            'KET_SHIFT' => urlencode($this->input->post('ket')),
+            'JAM_MASUK' => urlencode($this->input->post('jammasuk')),
+            'JAM_PULANG' => urlencode($this->input->post('jampulang')),
+            'USER_INPUT' => urlencode($this->input->post('cov_ank_dirawat')),
             'COV_ANK_MNG' => urlencode($this->input->post('cov_ank_meninggal')),
             'COV_ANK_ISO' => urlencode($this->input->post('cov_ank_iso')),
             'PDP_DWS_SMB' => urlencode($this->input->post('pdp_dws_sembuh')),

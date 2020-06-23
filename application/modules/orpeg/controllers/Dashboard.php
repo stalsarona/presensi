@@ -16,99 +16,97 @@ class Dashboard extends CI_Controller {
     public function index()
     {
         // $data['private_token'] = $this->private_token();
-        // $data1 = $this->get_total_data();
         
         // if(count($data1) > 0 ){
         //     $data['data'] = $data1;          
         // } else {
         //     $data['data'] = $this->info_covid_mysql();         
         // }
-
+        if ($this->session->userdata('status_log') != TRUE) {
+			$this->session->set_flashdata('errorMessage', '<div class="alert alert-danger">Silahkan masuk dahulu !</div>');
+					redirect('login');
+		}
         $this->load->view('V_dashboard');
         $this->load->view('V_content1');
-        $this->load->view('V_footer');
         
     }
 
     public function view_jadwal(){
-        $data['username'] = $this->session->userdata('username');
-        $data['nip'] = $this->session->userdata('niplama');
-        $this->load->view('V_dashboard');
-        $this->load->view('V_jadwal',$data);
-        $this->load->view('V_footer');
-    }
-
-    public function pendataan()
-    {
         if ($this->session->userdata('status_log') != TRUE) {
 			$this->session->set_flashdata('errorMessage', '<div class="alert alert-danger">Silahkan masuk dahulu !</div>');
-					redirect('signin');
-		}
+					redirect('login');
+        }
+        
+        $data['data'] = $this->get_jadwal();
+        $data['username'] = $this->session->userdata('username');
+        $data['nip'] = $this->session->userdata('niplama');
         $data['token'] = $this->private_token();
-        //$data['total'] = $this->get_total_data();
-        $this->load->view('V_pendataan', $data);       
+        $this->load->view('V_dashboard');
+        $this->load->view('V_jadwal',$data);
     }
 
-    public function get_cors($url)
-    {
-      
-        $ch0 	 = curl_init();
-                curl_setopt($ch0, CURLOPT_URL, $url);
-                curl_setopt ($ch0, CURLOPT_RETURNTRANSFER, 1);
-        $exec0 	 = curl_exec ($ch0);
-        curl_close ($ch0); 
-        return $exec0;
+    public function get_jadwal_by_id(){
+        $id = $this->input->post('id');
+
+		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/get_jadwal_by_id/";
+
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 0,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		CURLOPT_HTTPHEADER => array(
+			"X-id: ".$id
+			),
+		));
+
+		$response = curl_exec($curl);
+
+		curl_close($curl);
+		//echo $response;
+		//echo $id;
+        $data = json_decode($response, TRUE);
+        //untuk scraping json harus di decode baru di looping dahulu
+        $this->output->set_content_type('application/json')->set_output(json_encode($data));
     }
-    
-    public function private_token()
-	{
-		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/private_token/";
+
+    public function private_token(){
+		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/private_token/";
         $data = json_decode($this->get_cors($url), TRUE);
        
 		return $data;
     }
 
-    public function get_total_data()
-	{
-		
-		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/get_data_terakhir";
-        $data = json_decode($this->get_cors($url), TRUE);
-        
-        //print_r($data['status']['ID']);
-		return $data;
-	}
-    
-    public function simpan_total()
-    {
-        $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
-        $obj = array(
-            'JNS_SHIFT' => urlencode($this->input->post('jenis')),
-            'KET_SHIFT' => urlencode($this->input->post('ket')),
-            'JAM_MASUK' => urlencode($this->input->post('jammasuk')),
-            'JAM_PULANG' => urlencode($this->input->post('jampulang')),
-            'USER_INPUT' => urlencode($this->input->post('cov_ank_dirawat')),
-            'COV_ANK_MNG' => urlencode($this->input->post('cov_ank_meninggal')),
-            'COV_ANK_ISO' => urlencode($this->input->post('cov_ank_iso')),
-            'PDP_DWS_SMB' => urlencode($this->input->post('pdp_dws_sembuh')),
-            'PDP_DWS_RWT' => urlencode($this->input->post('pdp_dws_dirawat')),
-            'PDP_DWS_MNG' => urlencode($this->input->post('pdp_dws_meninggal')),
-            'PDP_ANK_SMB' => urlencode($this->input->post('pdp_ank_sembuh')),
-            'PDP_ANK_RWT' => urlencode($this->input->post('pdp_ank_dirawat')),
-            'PDP_ANK_MNG' => urlencode($this->input->post('pdp_ank_meninggal')),
-            'ODP_DWS_SMB' => urlencode($this->input->post('odp_dws_sembuh')),
-            'ODP_DWS_RWT' => urlencode($this->input->post('odp_dws_dirawat')),
-            'ODP_DWS_MNG' => urlencode($this->input->post('odp_dws_meninggal')),
-            'ODP_ANK_SMB' => urlencode($this->input->post('odp_ank_sembuh')),
-            'ODP_ANK_RWT' => urlencode($this->input->post('odp_ank_dirawat')),
-            'ODP_ANK_MNG' => urlencode($this->input->post('odp_ank_meninggal')),
-            'USER_INPUT' => urlencode($this->session->userdata('username')),
+    public function simpan_jadwal(){
+        $jmasuk   = $this->input->post('jammasuk');
+        $mmasuk   = $this->input->post('menitmasuk');
+        $jpulang  = $this->input->post('jampulang');
+        $mpulang  = $this->input->post('menitpulang');
+        $masuk    = ($jmasuk*60)+$mmasuk;
+        $pulang   = ($jpulang*60)+$mpulang;
+        $durasi   = $pulang-$masuk;
+		$obj = array(
+            'JNS_SHIFT'   => urlencode($this->input->post('idwktkerja')),
+            'KET_SHIFT'   => urlencode($this->input->post('ketwktkerja')),
+            'JAM_MASUK'   => $jmasuk,
+            'MENIT_MASUK' => $mmasuk,
+            'JAM_PULANG'  => $jpulang,
+            'MENIT_PULANG'=> $mpulang,
+            'DURASI'      => $durasi,
+            'USER_INPUT'  => urlencode($this->session->userdata('username')),
+            'JAM_INPUT'   => date("Y-m-d H:i:s"),
+            'KOMP_INPUT'  => gethostbyaddr($_SERVER['REMOTE_ADDR']),
             'private_key' => $this->input->post('private_token')
         );
-
         $curl = curl_init();
-
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/simpan_total",
+          CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/simpan_jadwal/",
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => "",
           CURLOPT_MAXREDIRS => 10,
@@ -124,9 +122,33 @@ class Dashboard extends CI_Controller {
         
         curl_close($curl);
         echo $response;
-        
+    }
+    
+    public function error(){
+        $this->load->view('V_dashboard');
+        $this->load->view('V_content1');
     }
 
+    public function get_cors($url)
+    {
+      
+        $ch0 	 = curl_init();
+                curl_setopt($ch0, CURLOPT_URL, $url);
+                curl_setopt ($ch0, CURLOPT_RETURNTRANSFER, 1);
+        $exec0 	 = curl_exec ($ch0);
+        curl_close ($ch0); 
+        return $exec0;
+    }
+    
+    public function get_jadwal()
+	{
+		
+		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/get_jadwal";
+        $data = json_decode($this->get_cors($url), TRUE);
+        
+		return $data;
+	}
+    
     public function test()
 	{
 		$newdata = array(
@@ -139,27 +161,6 @@ class Dashboard extends CI_Controller {
 		//echo $this->session->userdata('username');
     }
     
-    public function info_covid_mysql()
-    {
-       $data = $this->M_covid->info_covid_mysql();
-       foreach($data as $key){}
-       if(count($data) > 0){
-            $response = array('status' => $key,
-                            'message' => 'success',
-                            'code' => 200
-            );	
-        } else {
-            $response = array('status' => false,
-                            'message' => 'failed',
-                            'code' => 403
-            );	
-        }
-       
-        return $response;
-       
-    }
-
-
 }
 
-/* End of file Covid_informasi.php */
+/* End of file Dashboard.php */

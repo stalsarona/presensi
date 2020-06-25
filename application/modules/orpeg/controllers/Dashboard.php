@@ -15,13 +15,6 @@ class Dashboard extends CI_Controller {
     
     public function index()
     {
-        // $data['private_token'] = $this->private_token();
-        
-        // if(count($data1) > 0 ){
-        //     $data['data'] = $data1;          
-        // } else {
-        //     $data['data'] = $this->info_covid_mysql();         
-        // }
         if ($this->session->userdata('status_log') != TRUE) {
 			$this->session->set_flashdata('errorMessage', '<div class="alert alert-danger">Silahkan masuk dahulu !</div>');
 					redirect('login');
@@ -43,6 +36,20 @@ class Dashboard extends CI_Controller {
         $data['token'] = $this->private_token();
         $this->load->view('V_dashboard');
         $this->load->view('V_jadwal',$data);
+    }
+
+    public function view_lain(){
+        if ($this->session->userdata('status_log') != TRUE) {
+			$this->session->set_flashdata('errorMessage', '<div class="alert alert-danger">Silahkan masuk dahulu !</div>');
+					redirect('login');
+        }
+        
+        $data['data'] = $this->get_jadwal();
+        $data['username'] = $this->session->userdata('username');
+        $data['nip'] = $this->session->userdata('niplama');
+        $data['token'] = $this->private_token();
+        $this->load->view('V_dashboard');
+        $this->load->view('V_lain',$data);
     }
 
     public function get_jadwal_by_id(){
@@ -69,8 +76,6 @@ class Dashboard extends CI_Controller {
 		$response = curl_exec($curl);
 
 		curl_close($curl);
-		//echo $response;
-		//echo $id;
         $data = json_decode($response, TRUE);
         //untuk scraping json harus di decode baru di looping dahulu
         $this->output->set_content_type('application/json')->set_output(json_encode($data));
@@ -91,7 +96,7 @@ class Dashboard extends CI_Controller {
         $masuk    = ($jmasuk*60)+$mmasuk;
         $pulang   = ($jpulang*60)+$mpulang;
         $durasi   = $pulang-$masuk;
-		$obj = array(
+        $obj = array(
             'JNS_SHIFT'   => urlencode($this->input->post('idwktkerja')),
             'KET_SHIFT'   => urlencode($this->input->post('ketwktkerja')),
             'JAM_MASUK'   => $jmasuk,
@@ -106,22 +111,22 @@ class Dashboard extends CI_Controller {
         );
         $curl = curl_init();
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/simpan_jadwal/",
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_ENCODING => "",
-          CURLOPT_MAXREDIRS => 10,
-          CURLOPT_TIMEOUT => 0,
-          CURLOPT_FOLLOWLOCATION => true,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS => $obj,
-          
+            CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/simpan_jadwal/",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => $obj,
         ));
         
         $response = curl_exec($curl);
         
         curl_close($curl);
         echo $response;
+        
     }
     
     public function error(){
@@ -149,16 +154,45 @@ class Dashboard extends CI_Controller {
 		return $data;
 	}
     
-    public function test()
-	{
-		$newdata = array(
-            'username'  => 'johndoe',
-            'email'     => 'johndoe@some-site.com',
-            'logged_in' => TRUE
+    public function ubah_jadwal(){
+        $jmasukubah   = $this->input->post('jammasukubah');
+        $mmasukubah   = $this->input->post('menitmasukubah');
+        $jpulangubah  = $this->input->post('jamkeluarubah');
+        $mpulangubah  = $this->input->post('menitkeluarubah');
+        $masukubah    = ($jmasukubah*60)+$mmasukubah;
+        $pulangubah   = ($jpulangubah*60)+$mpulangubah;
+        $durasiubah   = $pulangubah-$masukubah;
+		$obj = array(
+            'JNS_SHIFT'   => urlencode($this->input->post('id_waktu')),
+            'KET_SHIFT'   => urlencode($this->input->post('jenis')),
+            'JAM_MASUK'   => $jmasukubah,
+            'MENIT_MASUK' => $mmasukubah,
+            'JAM_PULANG'  => $jpulangubah,
+            'MENIT_PULANG'=> $mpulangubah,
+            'DURASI'      => $durasiubah,
+            'USER_UBAH'  => urlencode($this->session->userdata('username')),
+            'JAM_UBAH'   => date("Y-m-d H:i:s"),
+            'KOMP_UBAH'  => gethostbyaddr($_SERVER['REMOTE_ADDR']),
+            'private_key' => $this->input->post('private_token')
         );
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/ubah_jadwal/",
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 0,
+          CURLOPT_FOLLOWLOCATION => true,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "POST",
+          CURLOPT_POSTFIELDS => $obj,
+          
+        ));
         
-        $this->session->set_userdata($newdata);
-		//echo $this->session->userdata('username');
+        $response = curl_exec($curl);
+        
+        curl_close($curl);
+        echo $response;
     }
     
 }

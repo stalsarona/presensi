@@ -119,25 +119,6 @@
           </div>
           <!-- /.col -->
         </div>
-      
-
-      <!-- <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div> -->
-      <!-- /.social-auth-links -->
-
-      <!-- <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p> -->
-      <!-- <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p> -->
     </div>
     <!-- /.login-card-body -->
   </div>
@@ -153,10 +134,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script>
   $(document).ready(function () {
-    //if($("#remember").prop('checked'))
-        //console.log('cek')  // checked
-    //else
-        //console.log('rak')  // uncheck
     $('#btnlogin').click(function(){
       var username = $('#username').val();
       var password = $('#password').val();
@@ -164,7 +141,7 @@
       if(username == "" || password == ""){
         swal('Username / Password','harus di isi','info');
       } else {
-        if($('#remember').prop('checked')){
+        // if($('#remember').prop('checked')){
           $.ajax({
             type: "POST",
             url: "<?php echo base_url('Login/login_pendataan')?>",
@@ -174,7 +151,6 @@
                 $('.overlay').css('display', 'block');
             },
             success: function (response) {
-              //console.log(response[0]['kode']).
               if(response[0]['kode'] == '200' && response[0]['TIPEUSER'] == 'MANAJEMEN'){
                 var manajemen = '<?php echo base_url('manajemen')?>/'
                 window.location.replace(manajemen);
@@ -190,9 +166,9 @@
               }
             }
           });
-        } else {
-          swal('Chexbox','harus di isi','info');
-        }
+        // } else {
+        //   swal('Chexbox','harus di isi','info');
+        // }
       }
     })
   });

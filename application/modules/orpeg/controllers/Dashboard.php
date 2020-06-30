@@ -194,6 +194,31 @@ class Dashboard extends CI_Controller {
         curl_close($curl);
         echo $response;
     }
+
+    public function hapus_jadwal(){
+		$obj = array(
+            'JNS_SHIFT'   => urlencode($this->input->post('id_waktu')),
+            'private_key' => $this->input->post('private_token')
+        );
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/ubah_jadwal/",
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 0,
+          CURLOPT_FOLLOWLOCATION => true,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "POST",
+          CURLOPT_POSTFIELDS => $obj,
+          
+        ));
+        
+        $response = curl_exec($curl);
+        
+        curl_close($curl);
+        echo $response;
+    }
     
 }
 

@@ -15,14 +15,13 @@ class Monitoring extends CI_Controller {
     
     public function index()
     {
+        if ($this->session->userdata('status_log') != TRUE) {
+			$this->session->set_flashdata('errorMessage', '<div class="alert alert-danger">Silahkan masuk dahulu !</div>');
+					redirect('login');
+		}
         $data['private_token'] = $this->private_token();
-        $data1 = $this->get_total_data();
-        $niplama=$this->session->userdata('niplama');
-        if(count($data1) > 0 ){
-            $data['data'] = $data1;          
-        } else {
-            $data['data'] = $this->info_covid_mysql();         
-        }
+        $data['pegawai'] = $this->get_hirarki_pegawai();
+        $data['niplama'] = $this->session->userdata('niplama');
         $this->load->view('V_dashboard', $data);
     }
 
@@ -56,97 +55,69 @@ class Monitoring extends CI_Controller {
 		return $data;
     }
 
-    public function get_total_data()
-	{
-		
-		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/get_data_terakhir";
-        $data = json_decode($this->get_cors($url), TRUE);
-        
-        //print_r($data['status']['ID']);
-		return $data;
-	}
-    
-    public function simpan_total()
-    {
-        $obj = array(
-            'COV_DWS_SMB' => $this->input->post('cov_dws_sembuh'),
-            'COV_DWS_RWT' => urlencode($this->input->post('cov_dws_dirawat')),
-            'COV_DWS_MNG' => urlencode($this->input->post('cov_dws_meninggal')),
-            'COV_DWS_ISO' => urlencode($this->input->post('cov_dws_iso')),
-            'COV_ANK_SMB' => urlencode($this->input->post('cov_ank_sembuh')),
-            'COV_ANK_RWT' => urlencode($this->input->post('cov_ank_dirawat')),
-            'COV_ANK_MNG' => urlencode($this->input->post('cov_ank_meninggal')),
-            'COV_ANK_ISO' => urlencode($this->input->post('cov_ank_iso')),
-            'PDP_DWS_SMB' => urlencode($this->input->post('pdp_dws_sembuh')),
-            'PDP_DWS_RWT' => urlencode($this->input->post('pdp_dws_dirawat')),
-            'PDP_DWS_MNG' => urlencode($this->input->post('pdp_dws_meninggal')),
-            'PDP_ANK_SMB' => urlencode($this->input->post('pdp_ank_sembuh')),
-            'PDP_ANK_RWT' => urlencode($this->input->post('pdp_ank_dirawat')),
-            'PDP_ANK_MNG' => urlencode($this->input->post('pdp_ank_meninggal')),
-            'ODP_DWS_SMB' => urlencode($this->input->post('odp_dws_sembuh')),
-            'ODP_DWS_RWT' => urlencode($this->input->post('odp_dws_dirawat')),
-            'ODP_DWS_MNG' => urlencode($this->input->post('odp_dws_meninggal')),
-            'ODP_ANK_SMB' => urlencode($this->input->post('odp_ank_sembuh')),
-            'ODP_ANK_RWT' => urlencode($this->input->post('odp_ank_dirawat')),
-            'ODP_ANK_MNG' => urlencode($this->input->post('odp_ank_meninggal')),
-            'USER_INPUT' => urlencode($this->session->userdata('username')),
-            'private_key' => $this->input->post('private_token')
-        );
+    public function get_hirarki_pegawai(){
+        $nip = $this->session->userdata('niplama');
 
-        $curl = curl_init();
+		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/get_hirarki_pegawai/";
 
-        curl_setopt_array($curl, array(
-          CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/simpan_total",
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_ENCODING => "",
-          CURLOPT_MAXREDIRS => 10,
-          CURLOPT_TIMEOUT => 0,
-          CURLOPT_FOLLOWLOCATION => true,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS => $obj,
-          
-        ));
-        
-        $response = curl_exec($curl);
-        
-        curl_close($curl);
-        echo $response;
-        
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 0,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		CURLOPT_HTTPHEADER => array(
+			"X-nip: ".$nip
+			),
+		));
+
+		$response = curl_exec($curl);
+
+		curl_close($curl);
+        $data = json_decode($response, TRUE);
+        //untuk scraping json harus di decode baru di looping dahulu
+        //$this->output->set_content_type('application/json')->set_output(json_encode($data));
+        return $data;
     }
 
-    public function test()
-	{
-		$newdata = array(
-            'username'  => 'johndoe',
-            'email'     => 'johndoe@some-site.com',
-            'logged_in' => TRUE
-        );
-        
-        $this->session->set_userdata($newdata);
-		//echo $this->session->userdata('username');
-    }
-    
-    public function info_covid_mysql()
-    {
-       $data = $this->M_covid->info_covid_mysql();
-       foreach($data as $key){}
-       if(count($data) > 0){
-            $response = array('status' => $key,
-                            'message' => 'success',
-                            'code' => 200
-            );	
-        } else {
-            $response = array('status' => false,
-                            'message' => 'failed',
-                            'code' => 403
-            );	
-        }
-       
-        return $response;
-       
-    }
+    public function get_absen_by_bulannip(){
+        $nip     = $this->input->post('pegawai');
+        $bulan   = $this->input->post('bulan');
+        $tahun   = $this->input->post('tahun');
+        $periode = $tahun.''.$bulan;
 
+		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/get_absen_by_bulannip/";
+
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 0,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		CURLOPT_HTTPHEADER => array(
+            "X-nip: ".$nip,
+            "X-bln: ".$periode
+			),
+		));
+
+		$response = curl_exec($curl);
+
+		curl_close($curl);
+        $data = json_decode($response, TRUE);
+        //untuk scraping json harus di decode baru di looping dahulu
+        //$this->output->set_content_type('application/json')->set_output(json_encode($data));
+        return $data;
+    }
 
 }
 

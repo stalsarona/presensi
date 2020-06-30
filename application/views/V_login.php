@@ -161,8 +161,9 @@
                 swal("username / password salah ",'','info');
                 $('.overlay').css('display', 'none');
               } else {
+                swal("Maaf anda tidak memiliki hak akses ",'','info');
                 var exp = '<?php echo base_url('404_override')?>';
-                window.location.replace(exp);
+                $('.overlay').css('display', 'none');
               }
             }
           });

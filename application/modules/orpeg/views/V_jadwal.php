@@ -63,7 +63,9 @@
                           <td>".substr($dt['CHECKOUT'],11,8)."</td>
                           <td>".$dt['DURASI']."</td>
                           <td>".$dt['STATUS']."</td>
-                          <td><button  data-id_waktu='" . $dt['IDWKTKERJA'] . "' data-toggle='modal' data-target='#ubah-data' class='btn btn-warning btnedit'>Ubah</button></></td>
+                          <td><button  data-id_waktu='" . $dt['IDWKTKERJA'] . "' data-toggle='modal' data-target='#ubah-data' class='btn btn-warning btnedit'>Ubah</button></>
+                          <a ><button data-id_waktu='" . $dt['IDWKTKERJA'] . "'  class='btn btn-danger'>Hapus</button></a></>
+                          </td>
                           </tr>
                         ";
                       }

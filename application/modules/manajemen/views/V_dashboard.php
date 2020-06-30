@@ -298,13 +298,13 @@ input.invalid {
                         <div class="form-group">
                           <label>Pilih Pegawai</label>
                           <select class="form-control select2" id="pegawai" name="pegawai" style="width: 100%;">
-                            <option selected="selected">Alabama</option>
-                            <option>Alaska</option>
-                            <option>California</option>
-                            <option>Delaware</option>
-                            <option>Tennessee</option>
-                            <option>Texas</option>
-                            <option>Washington</option>
+                            <?php
+                            $no_urut=0;
+                              foreach ($pegawai as $dt){
+                                $no_urut++;
+                                echo "<option value='".$dt['NIP2']."'>".$dt['NIP2']." - ".$dt['NAMA']."</option>";
+                              }
+                            ?>
                           </select>
                         </div>
                       </div>
@@ -340,7 +340,7 @@ input.invalid {
                       </div>
                       <div class="col-md-6">
                         <div class="form-group btn-cari">
-                          <a href="javaScript:void(0)" class="btn btn-primary" id="btncari">Cari</a>
+                          <button type="submit" id="btncari" class="btn btn-info float-right ">CARI</button>
                         </div>
                       </div>
                     </div>
@@ -409,25 +409,29 @@ input.invalid {
 <script>
      $(document).ready(function(){        
         $('.absensibulanan').hide(); 
-        $('.cekkehadiran').hide();        
+        $('.cekkehadiran').hide();     
+        $('.tabelabsensi').hide();   
 
         $('.btnbulanan').click(function(){
             $('.absensibulanan').show();
             $('.cekkehadiran').hide(); 
+            $('.tabelabsensi').hide();
         });
         $('.btncek').click(function(){
             $('.cekkehadiran').show();
             $('.absensibulanan').hide(); 
+            $('.tabelabsensi').hide();
         });
 
-        $('.select2').select2();
+        $('.select2').select2({
+          theme: 'bootstrap4'
+        });
 
         $('#btncari').on('click',function(){
-          //var nopas = $('#nopas').val(); //tidak dipakai karena sudah menggunakan FormData(obj) --> mengambil semua inputan dari form tersebut
           var obj = document.forms.namedItem("formPeg")
           $.ajax({
             type: "POST",
-            url: "<?php echo base_url('telemedicine/get_pasien')?>",
+            url: "<?php echo base_url('manajemen/Monitoring/get_absen_by_bulannip')?>",
             processData:false,
             contentType:false,
             cache:false,
@@ -439,20 +443,17 @@ input.invalid {
               $('.overlay').css('display', 'block');
             },
             success: function (response) {
-              $('.overlay').css('display', 'none');
-              if(response.metaData.code=='404' || response.metaData.code=='400') {
-                alert('Nomor Pasien tidak ditemukan')
-                $('.reset').val('')
-              } else if (response.metaData.code=='200'){
-                $('#norm').val(response.data[0].mr_no)
-                $('#nama').val(response.data[0].nama_pasien)
-                $('#tgllhr').val(response.data[0].birth_date)
-                $('#alamat').val(response.data[0].alamat)
-                $('#ktp').val(response.data[0].kartu_identitas_nomor)
-                $('#hp').val(response.data[0].kontak_nomor)
+              if(response[0]['CODE'] == '404'){
+                alert("Data tidak ditemukam");
+                var exp = '<?php echo base_url('manajemen/')?>';
+                window.location.replace(exp);
+              }else if(response[0]['CODE'] == '200'){   
+                var orpeg = '<?php echo base_url('orpeg/Dashboard/view_jadwal')?>';
+                window.location.replace(orpeg);
               }
             }
-          })
+          });
+          return false;
         });
     });
 </script>

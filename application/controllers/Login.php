@@ -18,7 +18,7 @@ class Login extends CI_Controller {
 			$this->load->view('V_login', $data);
 		} else if($this->session->userdata('tipe')=='MANAJEMEN'){
 			redirect('manajemen','refresh');
-		} else if($this->session->userdata('tipe')=='ORPEG'){
+		} else if($this->session->userdata('tipe')=='ADM'){
 			$data['username'] = $this->session->userdata('username');
 			redirect('orpeg','refresh',$data);
 		} else{

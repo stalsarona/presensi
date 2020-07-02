@@ -11,23 +11,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="shortcut icon" type="ico" href="<?php echo base_url()?>assets/images/logo.ico">
   <title>Monitoring Presensi</title>
 
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/fontawesome-free/css/all.min.css');?>">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css');?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/adminlte.min.css');?>">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css');?>">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/select2/css/select2.min.css');?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css');?>">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css');?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css');?>">
-   <!-- Select2 -->
-   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/select2/css/select2.min.css');?>">
-  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css');?>">
-
-  <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css');?>">
+  
   <style>
   /* Style the form */
 #regForm {
@@ -36,6 +36,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   padding: 0px;
   width: 100%;
   min-width: 300px;
+}
+
+.hidden{
+  display:none;
 }
 
 /* Style the input fields */
@@ -340,13 +344,29 @@ input.invalid {
                       </div>
                       <div class="col-md-6">
                         <div class="form-group btn-cari">
-                          <button type="submit" id="btncari" class="btn btn-info float-right ">CARI</button>
+                          <button type="submit" class="btn btn-info float-right btncari">CARI</button>
                         </div>
                       </div>
                     </div>
                     </form>
                     <!-- /.card-body -->
+                    
+                    <div class="card-body tabelabsensi">
+                      <h2 style="text-align:center">Riwayat Presensi</h2>
+                      <table id="tabelabsensi"  class="table  table-bordered table-striped">
+                        <thead>
+                          <tr>
+                            <!-- <th>#</th> -->
+                            <th>NIP</th>
+                            <th>TANGGAL</th>
+                            <th>MASUK</th>
+                            <th>PULANG</th>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
                   </div>
+                  
                 </div>
                 <!-- ./Memunculkan tab absensi bulanan -->
 
@@ -406,11 +426,23 @@ input.invalid {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <!-- Select2 -->
 <script src="<?php echo base_url('assets/plugins/select2/js/select2.full.min.js');?>"></script>
+
+<!-- DataTables -->
+<script src="<?= base_url('assets/plugins/datatables/jquery.dataTables.min.js');?>"></script>
+<script src="<?= base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js');?>"></script>
+<script src="<?= base_url('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js');?>"></script>
+<script src="<?= base_url('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js');?>"></script>
+
 <script>
      $(document).ready(function(){        
         $('.absensibulanan').hide(); 
         $('.cekkehadiran').hide();     
         $('.tabelabsensi').hide();   
+
+        // $(".tabelabsensi").DataTable({
+        //   "responsive": true,
+        //   "autoWidth": false,
+        // });
 
         $('.btnbulanan').click(function(){
             $('.absensibulanan').show();
@@ -427,29 +459,38 @@ input.invalid {
           theme: 'bootstrap4'
         });
 
-        $('#btncari').on('click',function(){
-          var obj = document.forms.namedItem("formPeg")
+        $('.btncari').on('click',function(){
+          // var obj = document.forms.namedItem("formPeg")
+          var nip = $('#pegawai').val();
+          var tahun = $('#tahun').val();
+          var bulan = $('#bulan').val();
           $.ajax({
             type: "POST",
             url: "<?php echo base_url('manajemen/Monitoring/get_absen_by_bulannip')?>",
-            processData:false,
-            contentType:false,
-            cache:false,
-            async:true,
-            crossOrigin : true,
-            data: new FormData(obj), 
+            data: {nip:nip,tahun:tahun,bulan:bulan}, 
             dataType: "json",
-            beforeSend: function() {
-              $('.overlay').css('display', 'block');
-            },
             success: function (response) {
-              if(response[0]['CODE'] == '404'){
-                alert("Data tidak ditemukam");
-                var exp = '<?php echo base_url('manajemen/')?>';
-                window.location.replace(exp);
-              }else if(response[0]['CODE'] == '200'){   
-                var orpeg = '<?php echo base_url('orpeg/Dashboard/view_jadwal')?>';
-                window.location.replace(orpeg);
+              if(response['code'] == '200'){
+                // location.reload();
+                $('.tabelabsensi').show();
+                var len = response.data.length;
+                var html = '';
+                if(len > 0){
+                  html += "<tbody>";
+                  for(var i = 0; i < len; i++){
+                    var tgl=response.data[i].TGLABSEN.substr(6,2);
+                    var bln=response.data[i].TGLABSEN.substr(4,2);
+                    var thn=response.data[i].TGLABSEN.substr(0,4);
+                    var tglabsen = tgl + '-' + bln + '-' + thn;
+                    html += "<tr><td>" + response.data[i].NIP + "</td><td>" + tglabsen + "</td><td>"+response.data[i].MASUK + "</td><td>"+response.data[i].PULANG + "</td></tr>";
+                  }
+                  html += "</tbody>";
+                  if(html != ""){
+                      $("#tabelabsensi").append(html).removeClass("hidden");
+                  }
+                }
+              }else{
+                alert('Data tidak ditemukan');
               }
             }
           });
@@ -458,115 +499,5 @@ input.invalid {
     });
 </script>
 
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true,
-      "autoWidth": false,
-    });
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
-<script>
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
-
-function showTab(n) {
-  // This function will display the specified tab of the form...
-  var x = document.getElementsByClassName("tab");
- 
-  x[n].style.display = "block";
-  //... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
-}
-
-function Form() {
-  // This function deals with validation of the form fields
-  var x, y, i, a, valid = true;
-  x = document.getElementsByClassName("tab");
-  z = x[currentTab].getElementsByClassName("-card");
-  y = x[currentTab].getElementsByClassName("");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      var idku = y[i].id
-      console.log(idku)
-      
-      $('html, body').animate({scrollTop : 0},600);
-      swal('Informasi','Ada form yang belum di isi.','info')
-      // and set the current valid status to false
-      valid = false;
-    } else {
-      var idku = y[i].id
-     
-    }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid; // return the valid status
-}
-
-function allowContactNumberOnly(a){
-  if(!/^[0-9.]+$/.test(a.value)){
-    a.value = a.value.substring(0,a.value.length-1000);
-  }
-}
-
-function allowNumbersOnly(a, event) {
-   
-    // if(!/^[0-9.]+$/.test(a.value))
-    if(!/^\d+$/.test(a.value))
-    {
-    a.value = a.value.substring(0,a.value.length-1000);
-    }
-    //ambil data ktp
-    var kode = $(this).event;
-    // var telp = $('#telp').val();
-    // $('#telp_lengkap').html(telp);
-    var code = (event.which) ? event.which : event.keyCode;
-    
-    //if(code == 13){
-      
-    //} 
-  }
-
-  $(function () {
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > 100) {
-        $('.back-to-top').fadeIn('slow');
-      } else {
-        $('.back-to-top').fadeOut('slow');
-      }
-    });
-    $('.back-to-top').click(function(){
-      $('html, body').animate({scrollTop : 0},1500);
-      return false;
-    });
-  });
-</script>
 </body>
 </html>

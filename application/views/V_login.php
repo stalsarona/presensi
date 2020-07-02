@@ -115,7 +115,7 @@
           </form>
           <!-- /.col -->
           <div class="col-4">
-            <button id="btnlogin" type="button" class="btn btn-primary">Sign In</button>
+            <button id="btnlogin" type="submit" class="btn btn-primary">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -154,7 +154,7 @@
               if(response[0]['kode'] == '200' && response[0]['TIPEUSER'] == 'MANAJEMEN'){
                 var manajemen = '<?php echo base_url('manajemen')?>/'
                 window.location.replace(manajemen);
-              } else if(response[0]['kode'] == '200' && response[0]['TIPEUSER'] == 'ORPEG'){
+              } else if(response[0]['kode'] == '200' && response[0]['TIPEUSER'] == 'ADM'){
                 var orpeg = '<?php echo base_url('orpeg')?>/'
                 window.location.replace(orpeg);
               } else if(response[0]['kode'] == '400' || response[0]['kode'] == '300'){

@@ -18,9 +18,11 @@ class Dashboard extends CI_Controller {
         if ($this->session->userdata('status_log') != TRUE) {
 			$this->session->set_flashdata('errorMessage', '<div class="alert alert-danger">Silahkan masuk dahulu !</div>');
 					redirect('login');
-		}
+        }
+        $data['pegawai'] = $this->get_total_pegawai_kontrak();
+        $data['pengguna'] = $this->get_total_pengguna();
         $this->load->view('V_dashboard');
-        $this->load->view('V_content1');
+        $this->load->view('V_content1',$data);
         
     }
 
@@ -152,7 +154,25 @@ class Dashboard extends CI_Controller {
         $data = json_decode($this->get_cors($url), TRUE);
         
 		return $data;
+    }
+    
+    public function get_total_pegawai_kontrak()
+	{
+		
+		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/get_total_pegawai_kontrak";
+        $data = json_decode($this->get_cors($url), TRUE);
+        
+		return $data;
 	}
+    
+    public function get_total_pengguna()
+	{
+		
+		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/get_total_pengguna";
+        $data = json_decode($this->get_cors($url), TRUE);
+        
+		return $data;
+    }
     
     public function ubah_jadwal(){
         $jmasukubah   = $this->input->post('jammasukubah');
@@ -173,31 +193,6 @@ class Dashboard extends CI_Controller {
             'USER_UBAH'  => urlencode($this->session->userdata('username')),
             'JAM_UBAH'   => date("Y-m-d H:i:s"),
             'KOMP_UBAH'  => gethostbyaddr($_SERVER['REMOTE_ADDR']),
-            'private_key' => $this->input->post('private_token')
-        );
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-          CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8000/wspresensi/rstugu/MonPresensi/ubah_jadwal/",
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_ENCODING => "",
-          CURLOPT_MAXREDIRS => 10,
-          CURLOPT_TIMEOUT => 0,
-          CURLOPT_FOLLOWLOCATION => true,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS => $obj,
-          
-        ));
-        
-        $response = curl_exec($curl);
-        
-        curl_close($curl);
-        echo $response;
-    }
-
-    public function hapus_jadwal(){
-		$obj = array(
-            'JNS_SHIFT'   => urlencode($this->input->post('id_waktu')),
             'private_key' => $this->input->post('private_token')
         );
         $curl = curl_init();

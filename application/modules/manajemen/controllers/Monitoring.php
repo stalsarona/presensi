@@ -86,7 +86,7 @@ class Monitoring extends CI_Controller {
     }
 
     public function get_absen_by_bulannip(){
-        $nip     = $this->input->post('pegawai');
+        $nip     = $this->input->post('nip');
         $bulan   = $this->input->post('bulan');
         $tahun   = $this->input->post('tahun');
         $periode = $tahun.''.$bulan;
@@ -114,9 +114,10 @@ class Monitoring extends CI_Controller {
 
 		curl_close($curl);
         $data = json_decode($response, TRUE);
+        $this->output->set_content_type('application/json')->set_output(json_encode($data));
         //untuk scraping json harus di decode baru di looping dahulu
         //$this->output->set_content_type('application/json')->set_output(json_encode($data));
-        return $data;
+        //return $data;
     }
 
 }

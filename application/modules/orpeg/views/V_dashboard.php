@@ -144,7 +144,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="<?= site_url('orpeg/Dashboard/')?>" class="nav-link active">
+            <a href="<?= site_url('orpeg/Dashboard/')?>" class="nav-link <?php if($this->uri->segment(1)=="orpeg"  && $this->uri->segment(3)==""){echo "active";}?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Halaman Utama
@@ -152,7 +152,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= site_url('orpeg/Dashboard/view_jadwal')?>" class="nav-link">
+            <a href="<?= site_url('orpeg/Dashboard/view_jadwal')?>" class="nav-link <?php if($this->uri->segment(1)=="orpeg" && $this->uri->segment(3)=="view_jadwal"){echo "active";}?>">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Jadwal Shift Pegawai
